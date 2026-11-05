@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dcd0f1">
+  <meta name="description" content="Protótipo demonstrativo da Entrear: instalação e manutenção de ar-condicionado. Direção O ar desenha.">
+  <title>Entrear — O ar desenha · Protótipo B</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="assets/fontes/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fontes/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face { font-family: Instrument; src: url('assets/fontes/instrument-sans.woff2') format('woff2'); font-weight: 400 700; font-display: swap; }
+    @font-face { font-family: Fraunces; src: url('assets/fontes/fraunces.woff2') format('woff2'); font-weight: 500 600; font-display: swap; }
+    :root { color-scheme: light; --violet: #4b2474; --lilac: #dcd0f1; --yellow: #f6e7aa; --ink: #261535; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; color: var(--violet); background: var(--lilac); font-family: Instrument, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-underline-offset: .25em; }
+    a, button { -webkit-tap-highlight-color: #c0abd9; touch-action: manipulation; }
+    :focus-visible { outline: 3px solid var(--ink); outline-offset: 6px; }
+    .skip { position: absolute; top: 12px; left: 24px; padding: 12px 18px; background: white; z-index: 10; transform: translateY(-160%); }
+    .skip:focus { transform: translateY(0); }
+    .canvas { max-width: 1720px; margin-inline: auto; padding-inline: max(64px, env(safe-area-inset-left)); }
+    .masthead { display: flex; justify-content: space-between; align-items: center; min-height: 112px; gap: 24px; position: relative; z-index: 2; }
+    .brand { display: flex; gap: 12px; align-items: center; }
+    .brand-mark { width: 42px; height: 36px; }
+    .brand-name { font-size: 39px; font-weight: 600; letter-spacing: -.065em; line-height: .9; }
+    .brand-description { display: block; font-size: 11px; margin-top: 9px; letter-spacing: .075em; }
+    .header-note { margin: 0; font-size: 14px; line-height: 1.45; text-align: right; }
+    .hero { position: relative; min-height: 680px; display: grid; grid-template-columns: 1.05fr .8fr 1fr; grid-template-rows: auto 1fr; gap: 20px 24px; padding-top: 34px; isolation: isolate; scroll-margin-top: 24px; }
+    .air-drawing { position: absolute; width: calc(100% + 128px); height: 100%; top: 0; left: -64px; pointer-events: none; z-index: -1; }
+    .air-drawing g { transform-box: fill-box; transform-origin: center; animation: arrive .7s ease-out both; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .service-line { position: absolute; top: 40px; right: 0; width: 230px; margin: 0; font-size: 16px; line-height: 1.5; }
+    .service-line span { white-space: nowrap; }
+    h1 { grid-column: 1 / -1; font-family: Fraunces, Georgia, serif; font-weight: 500; font-optical-sizing: auto; font-size: clamp(82px, 7.75vw, 130px); line-height: .98; letter-spacing: -.035em; margin: 0; }
+    h1 span { display: block; white-space: nowrap; }
+    h1 span + span { margin-left: 24%; }
+    .contact-block { grid-column: 3; grid-row: 2; align-self: center; padding-bottom: 34px; position: relative; }
+    .description { max-width: 340px; color: var(--ink); margin: 0 0 25px; font-size: 17px; line-height: 1.6; text-wrap: pretty; }
+    .contact { border: 2px solid var(--violet); border-radius: 100px; background: var(--violet); color: white; padding: 15px 24px; min-height: 56px; font: 500 15px Instrument, Arial, sans-serif; cursor: pointer; display: inline-flex; gap: 25px; align-items: center; transition: background-color .18s, color .18s; }
+    .contact svg { width: 20px; height: 20px; }
+    .contact:hover { background: var(--ink); }
+    .demo-status { max-width: 360px; font-size: 13px; line-height: 1.5; color: var(--ink); margin: 0; }
+    .demo-status:not(:empty) { margin-top: 16px; }
+    .visual { grid-column: 1; grid-row: 2; margin: 0 0 20px 36px; position: relative; align-self: end; }
+    .photo-shape { height: 310px; width: 100%; overflow: hidden; border-radius: 110px 18px 100px 18px; background: #d6d7d1; transform: rotate(-3deg); }
+    .photo-shape img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 21%; transform: scale(1.06) rotate(3deg); }
+    .air-slat { width: 158px; height: 91px; position: absolute; right: -80px; top: 15px; color: var(--violet); transform: rotate(-12deg); }
+    .visual figcaption { margin: 19px 0 0; max-width: 280px; color: var(--ink); font-size: 11px; line-height: 1.5; }
+    .footnote { padding: 23px 0 25px; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 11px; line-height: 1.5; color: var(--ink); }
+    .footnote p { margin: 0; }
+    .footnote a:hover { text-decoration-thickness: 2px; }
+    @media (min-width: 1500px) { .hero { min-height: 740px; } .photo-shape { height: 360px; } }
+    @media (max-width: 1100px) and (min-width: 701px) {
+      .canvas { padding-inline: 36px; } .hero { grid-template-columns: 1fr .3fr 1fr; min-height: 650px; }
+      h1 { font-size: clamp(68px, 8.2vw, 91px); }
+      .photo-shape { height: 310px; border-top-left-radius: 90px; }
+      .visual { margin-left: 8px; }
+      .service-line { top: 18px; width: 170px; font-size: 13px; } .description { font-size: 16px; max-width: 290px; }
+      .air-drawing { left: -36px; width: calc(100% + 72px); }
+    }
+    @media (max-width: 700px) {
+      .canvas { padding-inline: max(22px, env(safe-area-inset-left)); }
+      .masthead { min-height: 94px; gap: 12px; }
+      .brand { gap: 9px; } .brand-mark { width: 32px; height: 29px; }
+      .brand-name { font-size: 32px; } .brand-description { font-size: 9px; margin-top: 7px; }
+      .header-note { font-size: 11px; max-width: 100px; }
+      .hero { grid-template-columns: 1fr; grid-template-rows: auto; gap: 0; min-height: auto; padding-top: 19px; }
+      .service-line { position: static; width: auto; font-size: 12px; margin-bottom: 21px; }
+      h1 { grid-column: 1; font-size: clamp(49px, 13.1vw, 88px); line-height: 1.04; letter-spacing: -.025em; }
+      h1 span + span { margin-left: 0; }
+      .contact-block { grid-column: 1; grid-row: auto; padding: 0; margin: 0 0 24px; }
+      .description { font-size: 15px; line-height: 1.5; margin: 0 0 19px; max-width: 310px; }
+      .contact { min-height: 52px; padding: 13px 22px; font-size: 14px; gap: 22px; }
+      .visual { grid-column: 1; grid-row: auto; width: 76%; margin: 30px 0 25px 8px; }
+      .photo-shape { height: clamp(230px, 62vw, 350px); border-radius: 85px 12px 80px 12px; }
+      .photo-shape img { object-position: 50% 20%; }
+      .air-slat { width: 105px; height: 65px; right: -63px; top: 40px; }
+      .visual figcaption { margin: 19px 0 0; font-size: 10px; max-width: 230px; }
+      .air-drawing { left: -22px; width: calc(100% + 44px); height: 100%; }
+      .air-drawing .desktop-line { display: none; }
+      .air-drawing .mobile-line { display: initial; }
+      .footnote { align-items: flex-start; flex-direction: column; gap: 7px; padding-block: 18px 22px; font-size: 10px; }
+    }
+    @media (min-width: 701px) { .air-drawing .mobile-line { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .air-drawing g { animation: none; } .contact { transition: none; } }
+    @media (forced-colors: active) { .contact { border: 2px solid ButtonText; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <div class="canvas">
+    <header class="masthead">
+      <div class="brand" aria-label="Entrear Climatização" translate="no">
+        <svg class="brand-mark" viewBox="0 0 42 36" fill="none" aria-hidden="true"><path d="M3 9H25C34 9 35 24 25 24H8M3 17H22C27 17 29 31 16 31H8M12 2H29C43 2 43 32 29 32" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></svg>
+        <div><div class="brand-name">entrear</div><span class="brand-description">Climatização</span></div>
+      </div>
+      <p class="header-note">Para sua casa.<br>Para o seu negócio.</p>
+    </header>
+    <main id="conteudo" class="hero">
+      <svg class="air-drawing" viewBox="0 0 1440 680" fill="none" preserveAspectRatio="none" aria-hidden="true">
+        <g class="desktop-line" stroke="#f6e7aa" stroke-width="36"><path d="M-100 470C240 700 500 270 780 450S1260 720 1510 430"/><path d="M-100 520C240 750 500 320 780 500S1260 770 1510 480"/></g>
+        <g class="mobile-line" stroke="#f6e7aa" stroke-width="35"><path d="M-100 290C300 180 400 510 850 430S1400 260 1600 380"/><path d="M-100 335C300 225 400 555 850 475S1400 305 1600 425"/></g>
+      </svg>
+      <p class="service-line">Instalação e manutenção de <span>ar-condicionado</span></p>
+      <h1><span>Dê espaço</span> <span>a outro clima.</span></h1>
+      <figure class="visual">
+        <div class="photo-shape"><img src="assets/ambiente-climatizado.jpg" width="1800" height="2490" alt="Ar-condicionado branco instalado sobre painel ripado, integrado a um ambiente residencial." fetchpriority="high"></div>
+        <svg class="air-slat" viewBox="0 0 158 91" fill="none" aria-hidden="true"><path d="M4 8C59 8 68 79 153 79M4 28C49 28 66 88 122 88M36 4C87 4 91 56 154 56" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg>
+        <figcaption>Ambiente de referência.<br>Não representa um serviço da Entrear.</figcaption>
+      </figure>
+      <div class="contact-block">
+        <p class="description">Climatização para residências e pequenos negócios, com atenção a cada detalhe do seu espaço.</p>
+        <button class="contact" type="button" aria-controls="mensagem-demo">Pedir orçamento <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-8 8H5l-3 2v-7a8 8 0 1 1 18-3Z" stroke="currentColor" stroke-width="1.4"/><path d="M7 10h8M7 14h5" stroke="currentColor" stroke-width="1.4"/></svg></button>
+        <p id="mensagem-demo" class="demo-status" role="status"></p>
+      </div>
+    </main>
+    <footer class="footnote">
+      <p>Projeto demonstrativo · empresa fictícia</p>
+      <p>Fotografia: <a href="https://unsplash.com/photos/BsHycOlU6Bg">Caroline Badran / Unsplash</a></p>
+    </footer>
+  </div>
+  <script>
+    document.querySelector('.contact').addEventListener('click', () => {
+      document.querySelector('#mensagem-demo').textContent = 'Esta é uma demonstração. Em um site real, este botão abriria uma conversa de orçamento pelo WhatsApp. Nenhuma mensagem foi enviada.';
+    });
+  </script>
+</body>
+</html>

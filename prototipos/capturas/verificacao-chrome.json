@@ -1,0 +1,275 @@
+{
+  "browser": "Chrome",
+  "version": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.38",
+    "revision": "@a733b5afbb3ba618844ff8876b89ad1a774b2f18",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  },
+  "scenarios": [
+    {
+      "page": "conforto-construido",
+      "view": "desktop",
+      "title": "Entrear — Conforto construído · Protótipo A",
+      "viewport": 1440,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": true,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 900,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "overflowAfterContact": false,
+      "finiteMotion": true
+    },
+    {
+      "page": "conforto-construido",
+      "view": "mobile",
+      "title": "Entrear — Conforto construído · Protótipo A",
+      "viewport": 390,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": true,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 1001,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "overflowAfterContact": false
+    },
+    {
+      "page": "conforto-construido",
+      "view": "estreito",
+      "title": "Entrear — Conforto construído · Protótipo A",
+      "viewport": 320,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": true,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 1038,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "overflowAfterContact": false
+    },
+    {
+      "page": "conforto-construido",
+      "view": "tablet",
+      "title": "Entrear — Conforto construído · Protótipo A",
+      "viewport": 820,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": true,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 1180,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "overflowAfterContact": false
+    },
+    {
+      "page": "conforto-construido",
+      "view": "reflow-200-equivalente",
+      "title": "Entrear — Conforto construído · Protótipo A",
+      "viewport": 720,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": false,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 853,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "overflowAfterContact": false
+    },
+    {
+      "page": "o-ar-desenha",
+      "view": "desktop",
+      "title": "Entrear — O ar desenha · Protótipo B",
+      "viewport": 1440,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        },
+        {
+          "family": "Fraunces",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": true,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 900,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "overflowAfterContact": false,
+      "finiteMotion": true
+    },
+    {
+      "page": "o-ar-desenha",
+      "view": "mobile",
+      "title": "Entrear — O ar desenha · Protótipo B",
+      "viewport": 390,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        },
+        {
+          "family": "Fraunces",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": true,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 844,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "overflowAfterContact": false
+    },
+    {
+      "page": "o-ar-desenha",
+      "view": "estreito",
+      "title": "Entrear — O ar desenha · Protótipo B",
+      "viewport": 320,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        },
+        {
+          "family": "Fraunces",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": true,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 827,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "overflowAfterContact": false
+    },
+    {
+      "page": "o-ar-desenha",
+      "view": "tablet",
+      "title": "Entrear — O ar desenha · Protótipo B",
+      "viewport": 820,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        },
+        {
+          "family": "Fraunces",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": true,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 1180,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "overflowAfterContact": false
+    },
+    {
+      "page": "o-ar-desenha",
+      "view": "reflow-200-equivalente",
+      "title": "Entrear — O ar desenha · Protótipo B",
+      "viewport": 720,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        },
+        {
+          "family": "Fraunces",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": false,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 827,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "overflowAfterContact": false
+    }
+  ],
+  "errors": []
+}

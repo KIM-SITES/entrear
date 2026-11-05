@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1f4f2">
+  <meta name="description" content="Protótipo demonstrativo da Entrear: instalação e manutenção de ar-condicionado. Direção Conforto construído.">
+  <title>Entrear — Conforto construído · Protótipo A</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="assets/fontes/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face { font-family: Instrument; src: url('assets/fontes/instrument-sans.woff2') format('woff2'); font-weight: 400 700; font-display: swap; }
+    :root { color-scheme: light; --mineral: #f1f4f2; --ink: #153e42; --muted: #496360; --line: #c8d3d0; --brass: #bea06b; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--mineral); color: var(--ink); font-family: Instrument, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    button, a { -webkit-tap-highlight-color: #c8d3d0; touch-action: manipulation; }
+    a { color: inherit; text-underline-offset: .25em; }
+    :focus-visible { outline: 3px solid var(--ink); outline-offset: 6px; }
+    .skip { position: absolute; top: 12px; left: 24px; padding: 12px 18px; background: white; z-index: 10; transform: translateY(-160%); }
+    .skip:focus { transform: translateY(0); }
+    .page { max-width: 1720px; margin-inline: auto; padding-inline: max(40px, env(safe-area-inset-left)); }
+    .masthead { min-height: 112px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 13px; }
+    .brand-symbol { width: 34px; height: 38px; flex: none; }
+    .brand-name { font-size: 39px; letter-spacing: -.065em; line-height: .9; font-weight: 600; }
+    .brand-description { display: block; font-size: 11px; letter-spacing: .075em; margin-top: 9px; font-weight: 500; }
+    .header-note { font-size: 14px; max-width: 160px; line-height: 1.45; margin: 0; }
+    main { scroll-margin-top: 24px; }
+    .hero { display: grid; grid-template-columns: 47% 53%; min-height: 680px; }
+    .intro { display: flex; flex-direction: column; align-items: flex-start; padding: 31px 45px 27px 24px; }
+    .service-line { font-size: 14px; line-height: 1.5; margin: 0 0 25px; display: flex; align-items: center; gap: 12px; }
+    .service-line::before { content: ''; display: block; width: 32px; height: 2px; background: var(--brass); flex: none; }
+    h1 { font-size: clamp(64px, 6.05vw, 100px); font-weight: 500; line-height: .99; letter-spacing: -.045em; margin: 0; }
+    h1 span { display: block; }
+    .description { max-width: 350px; font-size: 17px; line-height: 1.6; margin: 30px 0 24px; color: var(--muted); text-wrap: pretty; }
+    .contact { min-height: 56px; padding: 15px 23px; border: 1px solid var(--ink); border-radius: 0; background: var(--ink); color: white; font: 500 15px Instrument, Arial, sans-serif; cursor: pointer; display: inline-flex; align-items: center; gap: 29px; transition: background-color .18s, color .18s; }
+    .contact:hover { background: #24565a; }
+    .contact svg { width: 19px; height: 19px; }
+    .demo-status { max-width: 350px; margin: 0; font-size: 13px; line-height: 1.5; }
+    .demo-status:not(:empty) { margin-top: 16px; }
+    .intro-note { display: flex; gap: 16px; align-items: center; margin: auto 0 0; padding-top: 34px; font-size: 13px; color: var(--muted); line-height: 1.45; }
+    .intro-note svg { width: 34px; height: 29px; flex: none; }
+    .visual { position: relative; margin: 0; background: #d6d7d1; min-width: 0; }
+    .visual img { width: 100%; height: 100%; position: absolute; inset: 0; display: block; object-fit: cover; object-position: 50% 35%; }
+    .image-note { position: absolute; left: 26px; bottom: 26px; padding: 17px 21px; background: var(--mineral); max-width: calc(100% - 52px); }
+    .image-note p { margin: 0; font-size: 15px; line-height: 1.4; }
+    .image-note small { display: block; margin-top: 6px; color: var(--muted); font-size: 11px; }
+    .footnote { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 23px 0 25px; font-size: 11px; line-height: 1.5; color: var(--muted); }
+    .footnote p { margin: 0; }
+    .footnote a:hover { color: var(--ink); text-decoration-thickness: 2px; }
+    @media (min-width: 1500px) { .page { padding-inline: 64px; } .intro { padding-left: 32px; } .hero { min-height: 740px; } }
+    @media (max-width: 1000px) and (min-width: 701px) { .page { padding-inline: 28px; } .hero { grid-template-columns: 50% 50%; min-height: 620px; } .intro { padding: 25px 25px 24px 0; } h1 { font-size: 65px; } .service-line { font-size: 12px; gap: 8px; } .service-line::before { width: 16px; } .image-note { left: 15px; bottom: 15px; max-width: calc(100% - 30px); padding: 15px; } }
+    @media (max-width: 700px) {
+      .page { padding-inline: max(22px, env(safe-area-inset-left)); }
+      .masthead { min-height: 94px; gap: 12px; }
+      .brand { gap: 9px; } .brand-symbol { width: 25px; height: 30px; }
+      .brand-name { font-size: 32px; } .brand-description { font-size: 9px; margin-top: 7px; }
+      .header-note { font-size: 11px; max-width: 99px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .intro { padding: 17px 0 28px; }
+      .service-line { font-size: 12px; margin-bottom: 20px; gap: 10px; }
+      .service-line::before { width: 22px; }
+      h1 { font-size: clamp(57px, 15.4vw, 89px); line-height: .99; }
+      h1 span { display: inline; } h1 span::after { content: ' '; }
+      .description { font-size: 15px; line-height: 1.5; margin: 19px 0 20px; max-width: 340px; }
+      .contact { min-height: 52px; padding: 13px 20px; font-size: 14px; gap: 24px; }
+      .intro-note { display: none; }
+      .visual { height: clamp(325px, 90vw, 490px); }
+      .visual img { object-position: 50% 21%; }
+      .image-note { left: 15px; bottom: 15px; padding: 12px 15px; max-width: calc(100% - 30px); }
+      .image-note p { font-size: 13px; } .image-note small { font-size: 10px; }
+      .footnote { align-items: flex-start; flex-direction: column; gap: 7px; padding-block: 18px 22px; font-size: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .contact { transition: none; } }
+    @media (forced-colors: active) { .contact { border: 2px solid ButtonText; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <div class="page">
+    <header class="masthead">
+      <div class="brand" aria-label="Entrear Climatização" translate="no">
+        <svg class="brand-symbol" viewBox="0 0 34 38" fill="none" aria-hidden="true"><path d="M3 34V5H14M20 5H31V34H20M8 19H26" stroke="currentColor" stroke-width="2.5"/></svg>
+        <div><div class="brand-name">entrear</div><span class="brand-description">Climatização</span></div>
+      </div>
+      <p class="header-note">Para sua casa.<br>Para o seu negócio.</p>
+    </header>
+    <main id="conteudo" class="hero">
+      <div class="intro">
+        <p class="service-line">Instalação e manutenção de ar-condicionado</p>
+        <h1><span>Ar bem</span> <span>instalado.</span> <span>Espaço bem</span> <span>cuidado.</span></h1>
+        <p class="description">Climatização para residências e pequenos negócios, com atenção a cada detalhe do seu espaço.</p>
+        <button class="contact" type="button" aria-controls="mensagem-demo">Pedir orçamento <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-8 8H5l-3 2v-7a8 8 0 1 1 18-3Z" stroke="currentColor" stroke-width="1.4"/><path d="M7 10h8M7 14h5" stroke="currentColor" stroke-width="1.4"/></svg></button>
+        <p id="mensagem-demo" class="demo-status" role="status"></p>
+        <p class="intro-note"><svg viewBox="0 0 34 29" fill="none" aria-hidden="true"><path d="M1 27V3H33V27M7 9H27M7 14H27M7 19H27" stroke="currentColor"/><path d="M14 22V28M20 22V28" stroke="#bea06b" stroke-width="2"/></svg>Do aparelho ao acabamento,<br>cada escolha faz parte do ambiente.</p>
+      </div>
+      <figure class="visual">
+        <img src="assets/ambiente-climatizado.jpg" width="1800" height="2490" alt="Ar-condicionado branco instalado sobre painel ripado, integrado a um ambiente residencial." fetchpriority="high">
+        <figcaption class="image-note"><p>O conforto também está nos detalhes.</p><small>Ambiente de referência. Não representa um serviço da Entrear.</small></figcaption>
+      </figure>
+    </main>
+    <footer class="footnote">
+      <p>Projeto demonstrativo · empresa fictícia</p>
+      <p>Fotografia: <a href="https://unsplash.com/photos/BsHycOlU6Bg">Caroline Badran / Unsplash</a></p>
+    </footer>
+  </div>
+  <script>
+    document.querySelector('.contact').addEventListener('click', () => {
+      document.querySelector('#mensagem-demo').textContent = 'Esta é uma demonstração. Em um site real, este botão abriria uma conversa de orçamento pelo WhatsApp. Nenhuma mensagem foi enviada.';
+    });
+  </script>
+</body>
+</html>

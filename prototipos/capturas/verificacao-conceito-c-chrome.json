@@ -1,0 +1,208 @@
+{
+  "browser": "Chrome",
+  "version": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.38",
+    "revision": "@a733b5afbb3ba618844ff8876b89ad1a774b2f18",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  },
+  "scenarios": [
+    {
+      "page": "conceito-c",
+      "view": "desktop",
+      "title": "Entrear — Conforto tem medida · Conceito C",
+      "viewport": 1440,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Archivo",
+          "status": "loaded"
+        },
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": true,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 900,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "installationPreview": true,
+      "serviceByKeyboard": true,
+      "radioFocusVisible": true,
+      "summaryMatchesService": true,
+      "previewMatchesService": true,
+      "apertureResponds": true,
+      "reducedTransitions": true,
+      "choiceTargets": true,
+      "overflowAfterService": false,
+      "shareableService": true,
+      "overflowAfterContact": false,
+      "finiteMotion": true,
+      "restoredService": true,
+      "normalMotionResponds": true,
+      "normalMotionSettles": true,
+      "alignedApertures": true
+    },
+    {
+      "page": "conceito-c",
+      "view": "mobile",
+      "title": "Entrear — Conforto tem medida · Conceito C",
+      "viewport": 390,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Archivo",
+          "status": "loaded"
+        },
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": true,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 932,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "installationPreview": true,
+      "serviceByKeyboard": true,
+      "radioFocusVisible": true,
+      "summaryMatchesService": true,
+      "previewMatchesService": true,
+      "apertureResponds": true,
+      "reducedTransitions": true,
+      "choiceTargets": true,
+      "overflowAfterService": false,
+      "shareableService": true,
+      "overflowAfterContact": false
+    },
+    {
+      "page": "conceito-c",
+      "view": "estreito",
+      "title": "Entrear — Conforto tem medida · Conceito C",
+      "viewport": 320,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Archivo",
+          "status": "loaded"
+        },
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": false,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 915,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "installationPreview": true,
+      "serviceByKeyboard": true,
+      "radioFocusVisible": true,
+      "summaryMatchesService": true,
+      "previewMatchesService": true,
+      "apertureResponds": true,
+      "reducedTransitions": true,
+      "choiceTargets": true,
+      "overflowAfterService": false,
+      "shareableService": true,
+      "overflowAfterContact": false
+    },
+    {
+      "page": "conceito-c",
+      "view": "tablet",
+      "title": "Entrear — Conforto tem medida · Conceito C",
+      "viewport": 820,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Archivo",
+          "status": "loaded"
+        },
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": true,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 1180,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "installationPreview": true,
+      "serviceByKeyboard": true,
+      "radioFocusVisible": true,
+      "summaryMatchesService": true,
+      "previewMatchesService": true,
+      "apertureResponds": true,
+      "reducedTransitions": true,
+      "choiceTargets": true,
+      "overflowAfterService": false,
+      "shareableService": true,
+      "overflowAfterContact": false
+    },
+    {
+      "page": "conceito-c",
+      "view": "reflow-200-equivalente",
+      "title": "Entrear — Conforto tem medida · Conceito C",
+      "viewport": 720,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Archivo",
+          "status": "loaded"
+        },
+        {
+          "family": "Instrument",
+          "status": "loaded"
+        }
+      ],
+      "image": true,
+      "headings": 1,
+      "buttonVisible": false,
+      "reducedMotion": true,
+      "runningAnimations": 0,
+      "height": 840,
+      "titleWithinComposition": true,
+      "skipLinkByKeyboard": true,
+      "focusVisible": true,
+      "contactByKeyboard": true,
+      "installationPreview": true,
+      "serviceByKeyboard": true,
+      "radioFocusVisible": true,
+      "summaryMatchesService": true,
+      "previewMatchesService": true,
+      "apertureResponds": true,
+      "reducedTransitions": true,
+      "choiceTargets": true,
+      "overflowAfterService": false,
+      "shareableService": true,
+      "overflowAfterContact": false
+    }
+  ],
+  "errors": []
+}
