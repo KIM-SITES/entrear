@@ -1,0 +1,14 @@
+---
+interface Props { href: string; variant?: 'primary' | 'quiet'; }
+const { href, variant = 'primary' } = Astro.props;
+---
+<a class:list={['action', `action--${variant}`]} href={href}><slot /></a>
+
+<style>
+  .action { display: inline-flex; align-items: center; justify-content: center; min-height: var(--target-min); padding: var(--space-3) var(--space-5); border: 1px solid transparent; border-radius: var(--radius-control); font-size: var(--type-small); font-weight: var(--weight-medium); text-align: center; }
+  .action--primary { color: var(--action-text); background: var(--action-background); text-decoration: none; }
+  .action--primary:hover { background: var(--action-background-hover); }
+  .action--quiet { color: var(--text-primary); border-color: var(--border-control); text-decoration: none; }
+  .action--quiet:hover { color: var(--action-text); background: var(--color-ink); }
+  @media (forced-colors: active) { .action { border-color: ButtonText; } }
+</style>

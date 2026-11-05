@@ -1,0 +1,157 @@
+---
+import BrandMark from '@/components/brand/BrandMark.astro';
+import BrandLockup from '@/components/brand/BrandLockup.astro';
+import ActionLink from '@/components/ui/ActionLink.astro';
+import ReferencePhoto from '@/components/media/ReferencePhoto.astro';
+import { palette, spacing, motion } from '@/data/design-system';
+import { coverageAreas, site } from '@/data/site';
+import { media } from '@/data/media';
+---
+<div class="foundation">
+  <div class="intro">
+    <div><p class="context">Etapa 1 de 5 · prancha de revisão</p><h1>Sistema visual<br>Entrear.</h1></div>
+    <div class="intro__note"><p>Conforto, precisão<br>e espaço para o ar.</p><span>Fundação da identidade aprovada.<br>O site comercial será desenvolvido nas próximas etapas.</span></div>
+  </div>
+
+  <nav class="guide-nav" aria-label="Conteúdo do sistema visual">
+    <a href="#marca">Marca e proporção</a><a href="#tipografia">Tipografia</a><a href="#cores">Cores</a><a href="#ritmo">Ritmo</a><a href="#recursos">Fotografia</a>
+  </nav>
+
+  <section class="brand-study" id="marca" aria-labelledby="marca-titulo">
+    <div class="section-intro"><h2 id="marca-titulo">O ar encontra<br>passagem.</h2><p>Três vãos abertos, em profundidade. A geometria parte da arquitetura e se torna assinatura da Entrear.</p></div>
+    <div class="brand-plate">
+      <div class="brand-plate__lockup"><BrandLockup /><p>Assinatura principal</p></div>
+      <div class="symbol-study"><div class="symbol-study__mark"><BrandMark label="Símbolo Entrear: três vãos sucessivos" /></div><div class="symbol-study__dimensions"><span>43 unidades</span><span>36 unidades de altura</span></div></div>
+    </div>
+    <div class="brand-variants">
+      <div class="brand-variants__light"><BrandLockup /><p>Azul-ardósia e cobre sobre branco frio</p></div>
+      <div class="brand-variants__dark"><BrandLockup inverse /><p>Versão clara sobre azul-ardósia</p></div>
+    </div>
+    <p class="annotation">Traço de 2,6 unidades, encontros retos e respiro mínimo de 6 unidades ao redor. Redução mínima recomendada: 32 px de largura. O desenho mantém as proporções do conceito C.</p>
+  </section>
+
+  <section class="type-study" id="tipografia" aria-labelledby="tipografia-titulo">
+    <div class="section-heading"><h2 id="tipografia-titulo">A voz da marca.</h2><p>Duas famílias locais, com papéis diferentes.</p></div>
+    <div class="type-display"><p class="type-label">Archivo · largura 85% · peso 500</p><p class="display-specimen">Conforto<br>tem medida.</p></div>
+    <div class="type-details">
+      <div><h3>Precisão para os títulos.</h3><p>Archivo concentra a assinatura e os títulos. A largura compacta permite escala expressiva, sem ocupar o espaço necessário para compreender o serviço.</p></div>
+      <div><p class="type-label">Instrument Sans · peso 400</p><p class="body-specimen">{site.description}</p><p class="annotation">Corpo base de 16 px, entrelinha 1,6 e textos com até 65 caracteres por linha como referência de composição.</p></div>
+    </div>
+  </section>
+
+  <section class="color-study" id="cores" aria-labelledby="cores-titulo">
+    <div class="section-heading"><h2 id="cores-titulo">Material e contraste.</h2><p>O cobre indica ação. A ardósia dá estrutura. O branco frio deixa o conteúdo respirar.</p></div>
+    <div class="palette">
+      {palette.map(color => <div class:list={['swatch', { 'swatch--inverse': color.inverse }]} style={`--swatch-color: var(${color.token})`} data-color-token={color.token} data-color-hex={color.hex}>
+        <div class="swatch__value"><span>{color.name}</span><span>{color.hex}</span></div><p>{color.role}</p>
+      </div>)}
+    </div>
+    <div class="action-study"><div><h3>Ação com contraste.</h3><p>O cobre recebe texto branco; informações complementares usam cinza de leitura. Bordas de campos terão contraste próprio, distinto das divisórias.</p></div><div class="action-study__samples"><ActionLink href="#marca">Rever a marca</ActionLink><ActionLink href="#recursos" variant="quiet">Ver fotografias</ActionLink></div></div>
+  </section>
+
+  <section class="rhythm-study" id="ritmo" aria-labelledby="ritmo-titulo">
+    <div class="section-intro"><h2 id="ritmo-titulo">Intervalos<br>com intenção.</h2><p>A mesma base de espaço organiza os vãos, os textos e a distância entre assuntos. As composições poderão variar sem perder coerência.</p></div>
+    <div class="rhythm-grid">
+      <div class="space-scale" aria-label="Escala de espaçamento em pixels">
+        {spacing.map(step => <div class="space-step"><span>{step.pixels} px</span><i style={`width: var(${step.token})`} aria-hidden="true"></i><code>{step.token}</code></div>)}
+      </div>
+      <div class="motion-scale"><h3>Movimento preparado,<br>sem animações nesta etapa.</h3><dl>{motion.map(item => <div><dt>{item.name}</dt><dd>{item.duration}</dd></div>)}</dl><p class="annotation">Curva padrão: cubic-bezier(0.22, 0.61, 0.36, 1). Em movimento reduzido, os tokens de duração e deslocamento passam a zero.</p></div>
+    </div>
+  </section>
+
+  <section class="photo-study" id="recursos" aria-labelledby="recursos-titulo">
+    <div class="section-heading"><h2 id="recursos-titulo">Ambiente antes<br>de ornamento.</h2><p>Referências licenciadas com aparelhos identificáveis. O enquadramento definitivo do hero será resolvido na Etapa 2.</p></div>
+    <div class="photo-grid"><ReferencePhoto asset={media['escritorio-referencia']} /><div class="photo-grid__secondary"><ReferencePhoto asset={media['residencia-referencia']} /></div></div>
+  </section>
+
+  <aside class="content-basis" aria-labelledby="conteudo-base-titulo">
+    <div><h2 id="conteudo-base-titulo">Conteúdo com<br>o contexto certo.</h2><p>Instalação e manutenção para residências e pequenos negócios. Cenários ilustrativos, sem resultados comerciais inventados.</p></div>
+    <div><h3>Região ilustrativa aprovada</h3><ul>{coverageAreas.map(area => <li>{area.name}</li>)}</ul><p class="annotation">Os municípios compõem o cenário fictício. Não indicam uma operação comercial real.</p></div>
+  </aside>
+</div>
+
+<style>
+  .intro { display: grid; grid-template-columns: 1.4fr 1fr; align-items: end; gap: var(--grid-gap); padding-block: var(--space-7) var(--space-8); }
+  .context { color: var(--text-secondary); font-size: var(--type-caption); margin-bottom: var(--space-5); }
+  .intro h1 { font-size: clamp(3.5rem, 3rem + 4vw, 7rem); line-height: .96; }
+  .intro__note { padding-bottom: var(--space-2); justify-self: end; }
+  .intro__note > p { font: var(--weight-medium) clamp(1.5rem, 1rem + 1.5vw, 2.25rem) / 1.2 var(--font-display); font-stretch: var(--font-display-stretch); }
+  .intro__note > span { display: block; margin-top: var(--space-5); color: var(--text-secondary); font-size: var(--type-small); line-height: 1.5; }
+  .guide-nav { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); border-block: 1px solid var(--border-subtle); padding-block: var(--space-2); }
+  .guide-nav a { display: inline-flex; align-items: center; min-height: var(--target-min); text-decoration: none; font-size: var(--type-small); }
+  .guide-nav a:hover { color: var(--color-copper); text-decoration: underline; }
+  section { padding-block: var(--space-section); }
+  section + section { border-top: 1px solid var(--border-subtle); }
+  .section-intro, .section-heading { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap); align-items: end; margin-bottom: var(--space-7); }
+  .section-intro > p, .section-heading > p { max-width: var(--measure-short); color: var(--text-secondary); }
+  .brand-plate { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: var(--grid-gap); min-height: 300px; border: 1px solid var(--border-subtle); padding: var(--space-7); }
+  .brand-plate__lockup { --brand-unit: clamp(1.2px, 0.12vw, 2px); }
+  .brand-plate__lockup > p { margin-top: var(--space-5); color: var(--text-secondary); font-size: var(--type-caption); }
+  .symbol-study { justify-self: center; width: min(100%, 258px); }
+  .symbol-study__mark { --brand-mark-width: min(100%, 215px); display: flex; justify-content: center; padding: var(--space-3); border: 1px solid var(--border-subtle); background-image: linear-gradient(var(--border-subtle) 1px, transparent 1px), linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px); background-size: 30px 30px; }
+  .symbol-study__dimensions { display: flex; justify-content: space-between; gap: var(--space-3); color: var(--text-secondary); font-size: .75rem; margin-top: var(--space-2); }
+  .brand-variants { display: grid; grid-template-columns: 1fr 1fr; }
+  .brand-variants > div { padding: var(--space-6) var(--space-7); }
+  .brand-variants__light { background: var(--color-glass); }
+  .brand-variants__dark { background: var(--surface-inverse); color: var(--text-inverse); }
+  .brand-variants p { font-size: var(--type-caption); margin-top: var(--space-5); }
+  .annotation { color: var(--text-secondary); font-size: var(--type-caption); line-height: 1.55; }
+  .brand-study > .annotation { max-width: var(--measure-body); margin-top: var(--space-5); }
+  .type-label { color: var(--text-secondary); font-size: var(--type-caption); }
+  .type-display { padding-block: var(--space-5) var(--space-7); }
+  .display-specimen { font: var(--weight-medium) var(--type-display) / var(--leading-display) var(--font-display); font-stretch: var(--font-display-stretch); letter-spacing: var(--tracking-display); margin-top: var(--space-5); }
+  .type-details { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+  .type-details h3 { margin-bottom: var(--space-4); }
+  .type-details > div > p:not(.body-specimen, .type-label) { max-width: var(--measure-short); color: var(--text-secondary); }
+  .body-specimen { font-size: var(--type-lead); line-height: 1.5; margin-block: var(--space-3) var(--space-5); max-width: var(--measure-short); }
+  .palette { display: grid; grid-template-columns: 1.25fr 1fr 1fr 1fr 1fr; }
+  .swatch { background: var(--swatch-color); padding: var(--space-5); min-height: 235px; display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-7); border: 1px solid var(--border-subtle); }
+  .swatch--inverse { color: var(--text-inverse); border-color: transparent; }
+  .swatch__value { display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--type-small); }
+  .swatch p { font-size: var(--type-caption); max-width: 20ch; }
+  .action-study { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap); margin-top: var(--space-7); align-items: center; }
+  .action-study h3 { margin-bottom: var(--space-3); }
+  .action-study p { max-width: var(--measure-short); color: var(--text-secondary); font-size: var(--type-small); }
+  .action-study__samples { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: var(--space-4); }
+  .rhythm-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-8); }
+  .space-step { display: grid; grid-template-columns: 48px 140px 1fr; gap: var(--space-3); align-items: center; min-height: 37px; font-size: var(--type-caption); }
+  .space-step i { display: block; max-width: 100%; height: 10px; background: var(--color-copper); }
+  .space-step code { font-family: var(--font-body); color: var(--text-secondary); font-size: .75rem; }
+  .motion-scale h3 { margin-bottom: var(--space-5); }
+  .motion-scale dl > div { display: flex; justify-content: space-between; gap: var(--space-5); border-bottom: 1px solid var(--border-subtle); padding-block: var(--space-3); font-size: var(--type-small); }
+  .motion-scale dd { font-variant-numeric: tabular-nums; }
+  .motion-scale > p { margin-top: var(--space-5); max-width: var(--measure-short); }
+  .photo-grid { display: grid; grid-template-columns: 1fr .8fr; gap: var(--space-8); align-items: start; }
+  .photo-grid__secondary { padding-top: var(--space-10); }
+  .content-basis { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap); padding-block: var(--space-8); border-top: 1px solid var(--border-subtle); }
+  .content-basis h2 { font-size: clamp(2rem, 1.4rem + 2vw, 3rem); }
+  .content-basis h2 + p { max-width: var(--measure-short); color: var(--text-secondary); margin-top: var(--space-5); }
+  .content-basis ul { padding: 0; margin: var(--space-4) 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); font-size: var(--type-lead); }
+  .content-basis .annotation { max-width: var(--measure-short); }
+  @media (max-width: 71.99rem) { .palette { grid-template-columns: repeat(3, 1fr); } .space-step { grid-template-columns: 45px 135px 1fr; } .rhythm-grid { gap: var(--space-6); } }
+  @media (max-width: 47.99rem) {
+    .intro { grid-template-columns: 1fr; padding-block: var(--space-6) var(--space-7); }
+    .intro h1 { font-size: clamp(3.25rem, 2rem + 6vw, 5rem); }
+    .intro__note { justify-self: start; }
+    .intro__note > p { font-size: 1.5rem; }
+    .intro__note > span { font-size: var(--type-caption); margin-top: var(--space-3); }
+    .guide-nav { gap: var(--space-1) var(--space-5); }
+    .guide-nav a { font-size: var(--type-caption); }
+    .section-intro, .section-heading, .type-details, .action-study, .rhythm-grid, .content-basis { grid-template-columns: 1fr; gap: var(--space-5); }
+    .section-intro > p, .section-heading > p { font-size: var(--type-small); }
+    .brand-plate { grid-template-columns: 1fr; padding: var(--space-5); gap: var(--space-7); }
+    .brand-plate__lockup { --brand-unit: 1.2px; }
+    .brand-variants { grid-template-columns: 1fr; }
+    .brand-variants > div { padding: var(--space-6) var(--space-5); }
+    .type-details { gap: var(--space-7); }
+    .palette { grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); }
+    .swatch { min-height: 210px; padding: var(--space-4); }
+    .swatch:first-child { grid-column: 1 / -1; min-height: 180px; }
+    .space-step { grid-template-columns: 42px 130px minmax(0, 1fr); gap: var(--space-2); }
+    .space-step code { overflow-wrap: anywhere; }
+    .photo-grid { grid-template-columns: 1fr; gap: var(--space-7); }
+    .photo-grid__secondary { padding-top: 0; }
+    .action-study__samples { align-items: stretch; flex-direction: column; }
+    .content-basis { padding-block: var(--space-7); }
+  }
+</style>

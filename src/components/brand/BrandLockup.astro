@@ -1,0 +1,18 @@
+---
+import BrandMark from './BrandMark.astro';
+interface Props { inverse?: boolean; class?: string; }
+const { inverse = false, class: className } = Astro.props;
+---
+<div class:list={['brand', { 'brand--inverse': inverse }, className]} translate="no" aria-label="Entrear Climatização" role="img">
+  <BrandMark tone={inverse ? 'inverse' : 'copper'} />
+  <div class="brand__words"><span class="brand__name">entrear</span><span class="brand__descriptor">Climatização</span></div>
+</div>
+
+<style>
+  .brand { --brand-mark-width: calc(43 * var(--brand-unit, 1px)); display: inline-flex; align-items: center; gap: calc(13 * var(--brand-unit, 1px)); color: var(--text-primary); }
+  .brand--inverse { color: var(--text-inverse); }
+  .brand__words { display: flex; flex-direction: column; gap: calc(7 * var(--brand-unit, 1px)); }
+  /* O conjunto é um logotipo (role=img); a escala textual não distorce a assinatura. */
+  .brand__name { font: var(--weight-semibold) calc(39 * var(--brand-unit, 1px)) / .9 var(--font-display); font-stretch: var(--font-display-stretch); letter-spacing: var(--tracking-brand); }
+  .brand__descriptor { font-size: calc(11 * var(--brand-unit, 1px)); line-height: 1.3; }
+</style>

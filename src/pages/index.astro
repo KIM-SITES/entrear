@@ -1,0 +1,22 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/layout/Container.astro';
+import BrandLockup from '@/components/brand/BrandLockup.astro';
+import DemoNotice from '@/components/ui/DemoNotice.astro';
+import FoundationGuide from '@/components/foundation/FoundationGuide.astro';
+---
+<BaseLayout>
+  <header slot="header">
+    <Container><div class="review-header"><BrandLockup /><DemoNotice /></div></Container>
+  </header>
+  <Container><FoundationGuide /></Container>
+  <footer slot="footer"><Container><div class="review-footer"><DemoNotice /><p>Etapa 1 · fundação técnica e sistema visual</p></div></Container></footer>
+</BaseLayout>
+
+<style>
+  .review-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); min-height: 112px; }
+  footer { border-top: 1px solid var(--border-subtle); }
+  .review-footer { display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); padding-block: var(--space-5); }
+  .review-footer > p { font-size: var(--type-caption); color: var(--text-secondary); }
+  @media (max-width: 47.99rem) { .review-header { align-items: flex-start; flex-direction: column; padding-block: var(--space-5); gap: var(--space-4); } .review-footer { align-items: flex-start; flex-direction: column; gap: var(--space-2); } }
+</style>

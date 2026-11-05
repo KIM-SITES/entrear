@@ -1,0 +1,21 @@
+---
+import { Picture } from 'astro:assets';
+import type { LicensedImage } from '@/types/content';
+
+interface Props { asset: LicensedImage; }
+const { asset } = Astro.props;
+---
+<figure class="reference-photo">
+  <Picture src={asset.image} alt={asset.alt} formats={['avif', 'webp']} widths={[360, 600, 900]} sizes="(min-width: 48rem) 40vw, 90vw" loading="lazy" />
+  <figcaption>
+    <p>{asset.disclaimer}</p>
+    <a href={asset.sourceUrl}>Fotografia: {asset.author} / Unsplash</a>
+  </figcaption>
+</figure>
+
+<style>
+  .reference-photo { min-width: 0; }
+  .reference-photo :global(img) { width: 100%; height: auto; }
+  figcaption { margin-block-start: var(--space-3); color: var(--text-secondary); font-size: var(--type-caption); line-height: 1.5; }
+  figcaption a { display: inline-block; margin-block-start: var(--space-1); }
+</style>

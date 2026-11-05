@@ -1,0 +1,11 @@
+---
+import { site } from '@/data/site';
+interface Props { inverse?: boolean; }
+const { inverse = false } = Astro.props;
+---
+<p class:list={['demo-notice', { 'demo-notice--inverse': inverse }]}>{site.demonstration.label}</p>
+
+<style>
+  .demo-notice { color: var(--text-secondary); font-size: var(--type-caption); line-height: 1.5; }
+  .demo-notice--inverse { color: var(--text-inverse); }
+</style>

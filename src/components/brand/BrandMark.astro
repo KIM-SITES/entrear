@@ -1,0 +1,25 @@
+---
+import Symbol from '@/assets/brand/entrear-symbol.svg';
+
+interface Props {
+  class?: string;
+  label?: string;
+  tone?: 'copper' | 'ink' | 'inverse';
+}
+
+const { class: className, label, tone = 'copper' } = Astro.props;
+---
+<span
+  class:list={['brand-mark', `brand-mark--${tone}`, className]}
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+>
+  <Symbol width="100%" height="100%" aria-hidden="true" focusable="false" />
+</span>
+
+<style>
+  .brand-mark { display: inline-flex; width: var(--brand-mark-width, 43px); height: var(--brand-mark-height, auto); aspect-ratio: 43 / 36; flex: none; color: var(--color-copper); }
+  .brand-mark--ink { color: var(--color-ink); }
+  .brand-mark--inverse { color: var(--color-paper); }
+</style>
