@@ -1,0 +1,44 @@
+---
+import BrandLockup from '@/components/brand/BrandLockup.astro';
+import Container from '@/components/layout/Container.astro';
+---
+<header class="site-header" data-site-header>
+  <Container>
+    <div class="header-row">
+      <a class="home-link" href="#inicio" aria-label="Entrear Climatização — início"><BrandLockup /></a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-controls="navegacao-principal" aria-expanded="false" hidden>Menu <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1V15M1 8H15" stroke="currentColor" stroke-width="1.5" /></svg></button>
+      <nav id="navegacao-principal" class="navigation" aria-label="Navegação principal" data-navigation>
+        <a href="#instalacao">Instalação</a><a href="#manutencao">Manutenção</a><a class="nav-budget" href="#orcamento">Pedir orçamento</a>
+      </nav>
+      <a class="header-budget" href="#orcamento">Pedir orçamento</a>
+    </div>
+    <p class="demo-line">Projeto demonstrativo · empresa fictícia</p>
+  </Container>
+</header>
+
+<style>
+  .site-header { position: sticky; top: 0; z-index: 5; color: var(--text-primary); background: var(--surface-page); border-bottom: 1px solid var(--border-subtle); }
+  .header-row { display: flex; align-items: center; gap: var(--space-7); min-height: 82px; }
+  .home-link { display: inline-flex; text-decoration: none; flex: none; }
+  .navigation { display: flex; gap: var(--space-6); margin-left: auto; }
+  .navigation a { display: inline-flex; align-items: center; min-height: var(--target-min); font-size: var(--type-small); text-decoration: none; }
+  .navigation a:hover { color: var(--color-copper); text-decoration: underline; }
+  .header-budget { display: inline-flex; min-height: var(--target-min); align-items: center; padding: var(--space-2) var(--space-5); border: 1px solid var(--border-control); font-size: var(--type-small); text-decoration: none; }
+  .header-budget:hover { color: var(--action-text); background: var(--color-ink); }
+  .navigation .nav-budget, .menu-toggle { display: none; }
+  .demo-line { padding-bottom: var(--space-3); font-size: .75rem; color: var(--text-secondary); }
+  @media (max-width: 47.99rem) {
+    .site-header { position: relative; }
+    .header-row { flex-wrap: wrap; gap: 0 var(--space-4); min-height: 76px; padding-top: var(--space-4); }
+    .home-link { margin-bottom: var(--space-4); }
+    .header-budget { display: none; }
+    .menu-toggle { margin: 0 0 var(--space-4) auto; padding: var(--space-2) 0 var(--space-2) var(--space-3); min-height: var(--target-min); color: var(--text-primary); background: transparent; border: 0; font-size: var(--type-small); gap: var(--space-3); align-items: center; }
+    .site-header[data-enhanced] .menu-toggle:not([hidden]) { display: inline-flex; }
+    .menu-toggle svg { transition: transform var(--motion-duration-interface) var(--motion-ease-standard); flex: none; }
+    .menu-toggle[aria-expanded="true"] svg { transform: rotate(45deg); }
+    .navigation { width: 100%; margin: 0 0 var(--space-4); flex-direction: column; gap: var(--space-1); }
+    .navigation[hidden] { display: none; }
+    .navigation a { min-height: 48px; font-size: 1rem; border-top: 1px solid var(--border-subtle); }
+    .navigation .nav-budget { display: inline-flex; color: var(--color-copper); }
+  }
+</style>

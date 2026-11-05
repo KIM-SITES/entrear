@@ -1,0 +1,95 @@
+---
+import { Picture } from 'astro:assets';
+import Container from '@/components/layout/Container.astro';
+import PhotoCredit from '@/components/media/PhotoCredit.astro';
+import { media } from '@/data/media';
+import { commercialMedia } from '@/data/commercial-media';
+import { serviceEditorial } from '@/data/commercial-content';
+const office = media['escritorio-referencia'];
+const maintenance = commercialMedia.maintenance;
+const installationCopy = serviceEditorial.instalacao;
+const maintenanceCopy = serviceEditorial.manutencao;
+---
+<section id="servicos" class="services" aria-labelledby="servicos-titulo">
+  <Container>
+    <div class="services-intro">
+      <h2 id="servicos-titulo">Do planejamento<br />ao cuidado contínuo.</h2>
+      <p>Instalar e manter pedem olhares diferentes. Entenda o que considerar em cada serviço e prepare seu pedido de orçamento.</p>
+    </div>
+    <article id="instalacao" class="installation" aria-labelledby="instalacao-titulo">
+      <div class="service-copy">
+        <p class="eyebrow">{installationCopy.label}</p>
+        <h3 id="instalacao-titulo">{installationCopy.heading[0]}<br />{installationCopy.heading[1]}</h3>
+        <p class="lead">{installationCopy.lead}</p>
+        <dl>
+          {installationCopy.details.map(detail => <div><dt>{detail.title}</dt><dd>{detail.description}</dd></div>)}
+        </dl>
+        <a class="service-action" href="?servico=instalacao#orcamento" data-service-link="instalacao">{installationCopy.action} <span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="installation-photo">
+        <Picture src={office.image} alt={office.alt} widths={[480, 800, 1200]} sizes="(min-width: 48rem) 48vw, calc(100vw - 2.5rem)" formats={['avif', 'webp']} loading="lazy" />
+        <figcaption><span>{office.disclaimer}</span><PhotoCredit author={office.author} sourceUrl={office.sourceUrl} provider="Unsplash" /></figcaption>
+      </figure>
+    </article>
+  </Container>
+  <article id="manutencao" class="maintenance" aria-labelledby="manutencao-titulo">
+    <Container>
+      <div class="maintenance-grid">
+        <figure class="maintenance-photo">
+          <Picture src={maintenance.image} alt={maintenance.alt} widths={[480, 800, 1200]} sizes="(min-width: 48rem) 42vw, calc(100vw - 2.5rem)" formats={['avif', 'webp']} loading="lazy" />
+          <figcaption><span>{maintenance.disclaimer}</span><PhotoCredit {...maintenance} inverse /></figcaption>
+        </figure>
+        <div class="service-copy maintenance-copy">
+          <p class="eyebrow">{maintenanceCopy.label}</p>
+          <h3 id="manutencao-titulo">{maintenanceCopy.heading[0]}<br />{maintenanceCopy.heading[1]}</h3>
+          <p class="lead">{maintenanceCopy.lead}</p>
+          <dl>
+            {maintenanceCopy.details.map(detail => <div><dt>{detail.title}</dt><dd>{detail.description}</dd></div>)}
+          </dl>
+          <a class="service-action" href="?servico=manutencao#orcamento" data-service-link="manutencao">{maintenanceCopy.action} <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </Container>
+  </article>
+</section>
+<style>
+  .services { padding-top: var(--space-section); }
+  .services-intro { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-9); border-top: 1px solid var(--border-subtle); padding-top: var(--space-6); margin-bottom: var(--space-9); }
+  .services-intro h2 { font-size: clamp(2rem, 3.3vw, 3.25rem); }
+  .services-intro > p { max-width: 43ch; align-self: end; color: var(--text-secondary); }
+  .installation { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--space-9); padding-bottom: var(--space-section); }
+  .service-copy { min-width: 0; }
+  .eyebrow { font-size: var(--type-small); margin-bottom: var(--space-6); }
+  h3 { font-family: var(--font-display); font-stretch: var(--font-display-stretch); font-size: clamp(2.5rem, 4.3vw, 4.5rem); font-weight: 500; letter-spacing: var(--tracking-display); line-height: var(--leading-heading); }
+  .lead { margin-top: var(--space-6); font-size: var(--type-lead); max-width: 40ch; }
+  dl { margin: var(--space-7) 0; }
+  dl > div { border-top: 1px solid var(--border-subtle); padding-block: var(--space-4); display: grid; grid-template-columns: 8.5rem 1fr; gap: var(--space-5); }
+  dt { font-weight: 600; }
+  dd { margin: 0; color: var(--text-secondary); font-size: var(--type-small); }
+  .service-action { display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); border-bottom: 1px solid currentColor; padding-block: var(--space-4); min-height: 52px; text-decoration: none; font-weight: 600; }
+  .service-action span { font-size: 1.5rem; transition: transform var(--motion-duration-micro) var(--motion-ease-standard); }
+  .service-action:hover span { transform: translate(3px, -3px); }
+  figure { margin: 0; min-width: 0; }
+  .installation-photo { padding-top: var(--space-8); }
+  figure :global(img) { width: 100%; object-fit: cover; }
+  .installation-photo :global(img) { height: clamp(440px, 43vw, 650px); object-position: 50% 20%; }
+  figcaption { display: flex; flex-direction: column; gap: var(--space-1); font-size: 0.75rem; line-height: 1.5; margin-top: var(--space-3); color: var(--text-secondary); }
+  .maintenance { background: var(--surface-inverse); color: var(--text-inverse); --focus-color: var(--color-paper); padding-block: var(--space-section); }
+  .maintenance-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: var(--space-9); align-items: center; }
+  .maintenance-photo :global(img) { height: clamp(400px, 40vw, 580px); object-position: 50% 55%; }
+  .maintenance :is(dd, figcaption) { color: var(--color-glass); }
+  .maintenance dl > div { border-color: #61737e; }
+  .maintenance .service-action { background: var(--color-paper); color: var(--color-ink); padding-inline: var(--space-5); border: 0; }
+  @media (max-width: 63.99rem) { .installation, .maintenance-grid, .services-intro { gap: var(--space-7); } dl > div { grid-template-columns: 1fr; gap: var(--space-2); } }
+  @media (max-width: 47.99rem) {
+    .services-intro, .installation, .maintenance-grid { grid-template-columns: 1fr; }
+    .services-intro { gap: var(--space-5); margin-bottom: var(--space-7); }
+    .installation-photo { padding-top: 0; }
+    .installation-photo :global(img) { height: auto; max-height: 540px; }
+    .maintenance-copy { grid-row: 1; }
+    .maintenance-photo :global(img) { height: clamp(350px, 110vw, 550px); }
+    .eyebrow { margin-bottom: var(--space-5); }
+    h3 { font-size: clamp(2.3rem, 9.5vw, 3.5rem); }
+    .service-action { font-size: var(--type-small); }
+  }
+</style>

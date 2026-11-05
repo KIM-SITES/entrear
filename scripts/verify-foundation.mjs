@@ -8,7 +8,8 @@ import { spawn } from 'node:child_process';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const output = resolve(root, 'dist');
-const artifacts = resolve(root, 'docs/validacao/etapa-1');
+// A evidência aprovada da etapa 1 é imutável; a regressão atual tem outra pasta.
+const artifacts = resolve(root, 'docs/validacao/etapa-2/fundacao');
 await access(resolve(output, 'index.html'));
 const edge = process.argv.includes('--edge');
 const browserPath = process.env.ENTREAR_BROWSER_PATH || (edge
@@ -100,7 +101,7 @@ try {
     await call('Page.enable'); await call('Runtime.enable'); await call('Network.enable');
     await call('Emulation.setDeviceMetricsOverride', { width: view.width, height: view.height, deviceScaleFactor: 1, mobile: view.width <= 390 && !view.textScale });
     await call('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
-    await call('Page.navigate', { url: base });
+    await call('Page.navigate', { url: base + '/sistema-visual/' });
     for (let tries = 0; tries < 100; tries++) {
       if (await evaluate('document.readyState') === 'complete') break;
       await new Promise(resolve => setTimeout(resolve, 50));

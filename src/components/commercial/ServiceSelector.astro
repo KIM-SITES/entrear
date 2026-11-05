@@ -1,0 +1,21 @@
+<div class="service-selector">
+  <fieldset data-service-fields disabled><legend>O que seu espaço precisa?</legend><div class="service-choices">
+    <label><input type="radio" name="hero-servico" value="instalacao" data-service-choice checked /> Instalação</label>
+    <label><input type="radio" name="hero-servico" value="manutencao" data-service-choice /> Manutenção</label>
+  </div></fieldset>
+  <p class="service-hint" data-service-summary role="status" aria-atomic="true">Conte sobre o ambiente e o aparelho que deseja instalar.</p>
+</div>
+<style>
+  .service-selector { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap); align-items: center; padding-block: var(--space-5); }
+  fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  fieldset:disabled { opacity: .65; }
+  legend { padding: 0; color: var(--text-secondary); font-size: var(--type-caption); margin-bottom: var(--space-1); }
+  .service-choices { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); }
+  label { display: inline-flex; gap: var(--space-2); align-items: center; min-height: var(--target-min); padding-block: var(--space-2); font-size: var(--type-small); border-bottom: 2px solid transparent; cursor: pointer; }
+  input { margin: 0; width: 16px; height: 16px; flex: none; }
+  label:has(input:checked) { color: var(--color-copper); border-bottom-color: var(--color-copper); }
+  label:has(input:focus-visible) { outline: var(--focus-width) solid var(--focus-color); outline-offset: 4px; }
+  input:focus-visible { outline: none; }
+  .service-hint { color: var(--text-secondary); max-width: var(--measure-short); font-size: var(--type-small); }
+  @media (max-width: 47.99rem) { .service-selector { grid-template-columns: 1fr; gap: var(--space-3); padding-block: var(--space-4); } .service-hint { font-size: var(--type-caption); } }
+</style>

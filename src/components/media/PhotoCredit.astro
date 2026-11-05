@@ -1,0 +1,10 @@
+---
+interface Props { author: string; sourceUrl: string; provider: string; inverse?: boolean; }
+const { author, sourceUrl, provider, inverse = false } = Astro.props;
+---
+<a class:list={['photo-credit', { 'photo-credit--inverse': inverse }]} href={sourceUrl}>Fotografia: {author} / {provider}</a>
+<style>
+  .photo-credit { color: var(--text-secondary); font-size: .75rem; line-height: 1.5; }
+  .photo-credit:hover { color: var(--text-primary); }
+  .photo-credit--inverse, .photo-credit--inverse:hover { color: var(--text-inverse); }
+</style>

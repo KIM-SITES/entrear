@@ -1,0 +1,93 @@
+---
+import Container from '@/components/layout/Container.astro';
+import { coverageAreas } from '@/data/site';
+---
+<section id="orcamento" class="quote" tabindex="-1" aria-labelledby="orcamento-titulo">
+  <Container>
+    <div class="quote-grid">
+      <div class="quote-intro">
+        <p class="eyebrow">Seu próximo passo</p>
+        <h2 id="orcamento-titulo">Vamos entender<br />o seu espaço.</h2>
+        <p>Escolha o serviço e conte um pouco sobre o ambiente. Ao final, você terá uma mensagem pronta para copiar.</p>
+        <p class="simulation"><strong>Esta é uma simulação.</strong> Use informações fictícias, sem dados pessoais. Nenhuma mensagem será enviada.</p>
+        <p class="coverage"><strong>Atendimento ilustrativo</strong><br />{coverageAreas.map(city => city.name).join(' · ')}</p>
+      </div>
+      <div>
+        <p data-quote-fallback class="fallback">Ative o JavaScript para preparar a mensagem de demonstração. Os campos ficam desabilitados para evitar o envio de informações.</p>
+        <form data-quote-form novalidate autocomplete="off">
+          <fieldset data-quote-fields disabled>
+            <legend class="visually-hidden">Dados para o orçamento demonstrativo</legend>
+            <div class="fields-grid">
+              <div class="field">
+                <label for="quote-service">Serviço <span>(obrigatório)</span></label>
+                <select id="quote-service" name="servico" required aria-describedby="erro-servico"><option value="instalacao">Instalação</option><option value="manutencao">Manutenção</option></select>
+                <p id="erro-servico" class="error" data-error="servico" hidden></p>
+              </div>
+              <div class="field">
+                <label for="quote-environment">Ambiente <span>(obrigatório)</span></label>
+                <select id="quote-environment" name="ambiente" required aria-describedby="erro-ambiente"><option value="">Selecione</option><option value="residencia">Residência</option><option value="pequeno-negocio">Pequeno negócio</option></select>
+                <p id="erro-ambiente" class="error" data-error="ambiente" hidden></p>
+              </div>
+              <div class="field full">
+                <label for="quote-city">Município <span>(obrigatório)</span></label>
+                <select id="quote-city" name="municipio" required aria-describedby="erro-municipio"><option value="">Selecione</option>{coverageAreas.map(city => <option value={city.id}>{city.name}</option>)}<option value="outra-localidade">Outro município</option></select>
+                <p id="erro-municipio" class="error" data-error="municipio" hidden></p>
+              </div>
+              <div class="field full">
+                <label for="quote-notes">Sobre o espaço <span>(opcional)</span></label>
+                <textarea id="quote-notes" name="observacoes" rows="4" maxlength="600" placeholder="Ex.: sala de um pequeno escritório; aparelho já instalado…" aria-describedby="notes-help erro-observacoes"></textarea>
+                <div id="notes-help" class="notes-help"><span>Não inclua nome, telefone ou endereço.</span><span><span data-notes-count>0</span>/600</span></div>
+                <p id="erro-observacoes" class="error" data-error="observacoes" hidden></p>
+              </div>
+              <button class="generate full" type="submit">Gerar mensagem de exemplo <span aria-hidden="true">↗</span></button>
+            </div>
+          </fieldset>
+          <p class="status" data-quote-status role="status" aria-atomic="true"></p>
+          <section class="preview" data-message-preview hidden aria-labelledby="mensagem-titulo">
+            <h3 id="mensagem-titulo" data-message-title tabindex="-1">Sua mensagem de demonstração</h3>
+            <label class="visually-hidden" for="quote-output">Mensagem pronta para copiar</label>
+            <textarea id="quote-output" rows="9" readonly spellcheck="false" data-message-output></textarea>
+            <button type="button" class="copy" data-copy-message>Copiar mensagem</button>
+          </section>
+        </form>
+      </div>
+    </div>
+  </Container>
+</section>
+<style>
+  .quote { padding-block: var(--space-section); }
+  .quote-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: var(--space-9); }
+  .quote-grid > *, .field { min-width: 0; }
+  .eyebrow { margin-bottom: var(--space-5); font-size: var(--type-small); }
+  h2 { font-size: clamp(2.5rem, 4.1vw, 4rem); }
+  .quote-intro > p:not(.eyebrow) { margin-top: var(--space-6); max-width: 38ch; }
+  .simulation { border-left: 3px solid var(--color-copper); padding-left: var(--space-5); font-size: var(--type-small); }
+  .simulation strong { display: block; }
+  .coverage { font-size: var(--type-small); color: var(--text-secondary); }
+  .fallback { margin-bottom: var(--space-5); }
+  fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  fieldset:disabled { opacity: .65; }
+  .fields-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+  .full { grid-column: 1 / -1; }
+  label { display: block; font-size: var(--type-small); font-weight: 600; margin-bottom: var(--space-2); }
+  label > span { font-weight: 400; font-size: .8125rem; }
+  :is(select, textarea) { width: 100%; min-width: 0; border: 1px solid var(--border-control); border-radius: var(--radius-control); background: var(--surface-page); color: var(--text-primary); padding: var(--space-3); min-height: 52px; font-size: 1rem; }
+  textarea { resize: vertical; }
+  [aria-invalid="true"] { border: 2px solid var(--color-copper); }
+  .notes-help { display: flex; justify-content: space-between; gap: var(--space-4); color: var(--text-secondary); font-size: .75rem; margin-top: var(--space-2); }
+  .notes-help > :last-child { white-space: nowrap; }
+  .error { color: var(--color-copper); margin-top: var(--space-2); font-size: var(--type-small); }
+  button { min-height: 54px; border: 0; border-radius: var(--radius-control); padding: var(--space-4) var(--space-5); font-weight: 600; cursor: pointer; }
+  .generate, .copy { background: var(--action-background); color: var(--action-text); transition: background var(--motion-duration-micro) var(--motion-ease-standard); }
+  :is(.generate, .copy):hover { background: var(--action-background-hover); }
+  .generate { display: flex; justify-content: space-between; gap: var(--space-4); align-items: center; text-align: left; }
+  .generate span { font-size: 1.4rem; }
+  .status:not(:empty) { margin-block: var(--space-5); font-size: var(--type-small); }
+  .preview { border-top: 1px solid var(--border-subtle); margin-top: var(--space-6); padding-top: var(--space-6); }
+  .preview[hidden] { display: none; }
+  .preview h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-4); }
+  .preview textarea { background: var(--color-glass); line-height: 1.6; }
+  .copy { width: 100%; margin-top: var(--space-4); }
+  @media (max-width: 63.99rem) { .quote-grid { gap: var(--space-7); } .fields-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 47.99rem) { .quote-grid { grid-template-columns: 1fr; } }
+</style>
