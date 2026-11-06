@@ -1,0 +1,24 @@
+{
+  "foundationScreenshotsIdentical": {
+    "desktop.png": true,
+    "desktop-completo.png": true,
+    "mobile.png": true,
+    "mobile-completo.png": true
+  },
+  "bundles": [
+    {
+      "file": "index.astro_astro_type_script_index_0_lang.BCGhpbx5.js",
+      "bytes": 6984,
+      "gzipBytes": 2768
+    }
+  ],
+  "contrastRatios": {
+    "primary": 10.02,
+    "secondary": 5.67,
+    "copper": 5.03,
+    "inverse": 10.02,
+    "inverseSecondary": 8.04,
+    "regionSecondary": 4.55,
+    "action": 5.72
+  }
+}

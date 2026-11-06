@@ -1,0 +1,40 @@
+---
+import Container from '@/components/layout/Container.astro';
+import EditorialPhoto from './EditorialPhoto.astro';
+import { companyEditorial as company } from '@/data/editorial-content';
+import { editorialMedia } from '@/data/editorial-media';
+---
+<section id="entrear" class="about" tabindex="-1" aria-labelledby="entrear-titulo">
+  <Container>
+    <div class="about-heading"><p>A Entrear</p><h2 id="entrear-titulo">{company.heading}</h2></div>
+    <div class="about-body">
+      <div class="about-photo"><EditorialPhoto photo={editorialMedia.detail} inverse detail /></div>
+      <div class="about-copy"><p class="introduction">{company.introduction}</p><p>{company.description}</p>
+        <dl>{company.principles.map(principle => <div><dt>{principle.title}</dt><dd>{principle.description}</dd></div>)}</dl>
+      </div>
+    </div>
+  </Container>
+</section>
+<style>
+  .about { background: var(--surface-inverse); color: var(--text-inverse); --focus-color: var(--color-paper); padding-block: var(--space-section); }
+  .about-heading { display: grid; grid-template-columns: .7fr 1.3fr; gap: var(--space-8); align-items: start; margin-bottom: var(--space-8); }
+  .about-heading > p { padding-top: var(--space-3); font-size: var(--type-small); }
+  h2 { max-width: 17ch; font-size: clamp(2.8rem, 5.4vw, 5.5rem); letter-spacing: var(--tracking-display); }
+  .about-body { display: grid; grid-template-columns: .7fr 1.3fr; gap: var(--space-8); align-items: end; }
+  .about-photo { padding-right: var(--space-6); }
+  .about-copy { max-width: 64ch; }
+  .introduction { font-size: var(--type-lead); }
+  .about-copy > p + p { color: var(--color-glass); margin-top: var(--space-5); }
+  dl { margin-top: var(--space-7); }
+  dl > div { display: grid; grid-template-columns: 11rem 1fr; gap: var(--space-5); padding-block: var(--space-4); border-top: 1px solid #61737e; }
+  dt { font-weight: var(--weight-semibold); }
+  dd { color: var(--color-glass); font-size: var(--type-small); }
+  @media (max-width: 63.99rem) { dl > div { grid-template-columns: 1fr; gap: var(--space-2); } .about-photo { padding-right: 0; } }
+  @media (max-width: 47.99rem) {
+    .about-heading, .about-body { grid-template-columns: 1fr; gap: var(--space-6); }
+    .about-heading { margin-bottom: var(--space-6); }
+    .about-heading > p { padding: 0; }
+    .about-photo { grid-row: 2; margin-top: var(--space-5); }
+    h2 { font-size: clamp(2.6rem, 10vw, 4rem); }
+  }
+</style>

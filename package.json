@@ -15,7 +15,8 @@
     "verify:references": "node scripts/verify-prototypes.mjs",
     "verify:foundation": "node scripts/verify-foundation.mjs",
     "test:quote": "node --test scripts/quote.test.mjs",
-    "verify:commercial": "node scripts/verify-commercial.mjs"
+    "verify:commercial": "node scripts/verify-commercial.mjs",
+    "verify:editorial": "node scripts/verify-editorial.mjs"
   },
   "dependencies": {
     "astro": "7.4.7"

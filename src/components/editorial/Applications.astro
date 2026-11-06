@@ -1,0 +1,52 @@
+---
+import Container from '@/components/layout/Container.astro';
+import EditorialPhoto from './EditorialPhoto.astro';
+import { applicationStories } from '@/data/editorial-content';
+import { editorialMedia } from '@/data/editorial-media';
+---
+<section id="aplicacoes" class="applications" tabindex="-1" aria-labelledby="aplicacoes-titulo">
+  <Container>
+    <div class="applications-intro">
+      <div><p class="section-label">Aplicações demonstrativas</p><h2 id="aplicacoes-titulo">Cada ambiente<br />pede um olhar.</h2></div>
+      <p class="intro-note">Três cenários para pensar a climatização no dia a dia. As fotografias são referências de uso e não representam projetos executados pela Entrear.</p>
+    </div>
+    <div class="applications-layout">
+      {applicationStories.map((story, index) => (
+        <article class:list={['application', { 'application--main': index === 0 }]} aria-labelledby={`aplicacao-${story.id}`}>
+          <EditorialPhoto photo={editorialMedia[story.image]} primary={index === 0} />
+          <div class="application-copy">
+            <h3 id={`aplicacao-${story.id}`}>{story.title}</h3>
+            <p class="application-heading">{story.heading}</p>
+            <p>{story.description}</p>
+            {'consideration' in story && <p class="consideration">{story.consideration}</p>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </Container>
+</section>
+<style>
+  .applications { padding-block: var(--space-section); }
+  .applications-intro { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-9); align-items: end; margin-bottom: var(--space-8); }
+  .section-label { margin-bottom: var(--space-5); font-size: var(--type-small); }
+  h2 { font-size: clamp(2.5rem, 4.7vw, 4.75rem); }
+  .intro-note { max-width: 43ch; color: var(--text-secondary); }
+  .applications-layout { display: grid; grid-template-columns: 1.2fr .85fr; gap: var(--space-8) var(--space-9); }
+  .application { min-width: 0; }
+  .application--main { grid-row: span 2; }
+  .application-copy { padding-top: var(--space-5); }
+  h3 { font-size: clamp(1.6rem, 2.5vw, 2.5rem); letter-spacing: -.025em; }
+  .application-heading { margin-top: var(--space-3); font-weight: var(--weight-semibold); }
+  .application-copy > p:not(.application-heading) { max-width: 55ch; margin-top: var(--space-3); color: var(--text-secondary); font-size: var(--type-small); }
+  .application--main .application-copy { max-width: 34rem; }
+  .application--main h3 { font-size: clamp(2rem, 3.4vw, 3.5rem); }
+  .application-copy > p.consideration { border-left: 2px solid var(--color-copper); padding-left: var(--space-4); margin-top: var(--space-6); }
+  @media (max-width: 63.99rem) { .applications-layout, .applications-intro { gap: var(--space-7); } }
+  @media (max-width: 47.99rem) {
+    .applications-intro, .applications-layout { grid-template-columns: 1fr; }
+    .applications-intro { gap: var(--space-5); margin-bottom: var(--space-7); }
+    .applications-layout { gap: var(--space-8); }
+    .application--main { grid-row: auto; }
+    .application--main h3 { font-size: 2rem; }
+  }
+</style>

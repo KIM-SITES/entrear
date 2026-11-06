@@ -1,6 +1,7 @@
 ---
 import BrandLockup from '@/components/brand/BrandLockup.astro';
 import Container from '@/components/layout/Container.astro';
+import { editorialNavigation, complementaryNavigation } from '@/data/editorial-content';
 ---
 <header class="site-header" data-site-header>
   <Container>
@@ -8,7 +9,9 @@ import Container from '@/components/layout/Container.astro';
       <a class="home-link" href="#inicio" aria-label="Entrear Climatização — início"><BrandLockup /></a>
       <button class="menu-toggle" type="button" data-menu-toggle aria-controls="navegacao-principal" aria-expanded="false" hidden>Menu <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1V15M1 8H15" stroke="currentColor" stroke-width="1.5" /></svg></button>
       <nav id="navegacao-principal" class="navigation" aria-label="Navegação principal" data-navigation>
-        <a href="#instalacao">Instalação</a><a href="#manutencao">Manutenção</a><a class="nav-budget" href="#orcamento">Pedir orçamento</a>
+        {editorialNavigation.map(item => <a href={item.href}>{item.label}</a>)}
+        {complementaryNavigation.filter(item => item.section !== 'orcamento').map(item => <a class="nav-secondary" href={`#${item.section}`}>{item.label}</a>)}
+        <a class="nav-budget" href="#orcamento">Pedir orçamento</a>
       </nav>
       <a class="header-budget" href="#orcamento">Pedir orçamento</a>
     </div>
@@ -18,16 +21,16 @@ import Container from '@/components/layout/Container.astro';
 
 <style>
   .site-header { position: sticky; top: 0; z-index: 5; color: var(--text-primary); background: var(--surface-page); border-bottom: 1px solid var(--border-subtle); }
-  .header-row { display: flex; align-items: center; gap: var(--space-7); min-height: 82px; }
+  .header-row { display: flex; align-items: center; gap: var(--space-6); min-height: 82px; }
   .home-link { display: inline-flex; text-decoration: none; flex: none; }
-  .navigation { display: flex; gap: var(--space-6); margin-left: auto; }
+  .navigation { display: flex; gap: var(--space-5); margin-left: auto; }
   .navigation a { display: inline-flex; align-items: center; min-height: var(--target-min); font-size: var(--type-small); text-decoration: none; }
   .navigation a:hover { color: var(--color-copper); text-decoration: underline; }
   .header-budget { display: inline-flex; min-height: var(--target-min); align-items: center; padding: var(--space-2) var(--space-5); border: 1px solid var(--border-control); font-size: var(--type-small); text-decoration: none; }
   .header-budget:hover { color: var(--action-text); background: var(--color-ink); }
-  .navigation .nav-budget, .menu-toggle { display: none; }
+  .navigation .nav-budget, .navigation .nav-secondary, .menu-toggle { display: none; }
   .demo-line { padding-bottom: var(--space-3); font-size: .75rem; color: var(--text-secondary); }
-  @media (max-width: 47.99rem) {
+  @media (max-width: 63.99rem) {
     .site-header { position: relative; }
     .header-row { flex-wrap: wrap; gap: 0 var(--space-4); min-height: 76px; padding-top: var(--space-4); }
     .home-link { margin-bottom: var(--space-4); }
@@ -40,5 +43,6 @@ import Container from '@/components/layout/Container.astro';
     .navigation[hidden] { display: none; }
     .navigation a { min-height: 48px; font-size: 1rem; border-top: 1px solid var(--border-subtle); }
     .navigation .nav-budget { display: inline-flex; color: var(--color-copper); }
+    .navigation .nav-secondary { display: inline-flex; }
   }
 </style>

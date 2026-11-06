@@ -3,7 +3,7 @@ export function initNavigation(): void {
   const toggle = header?.querySelector<HTMLButtonElement>('[data-menu-toggle]');
   const navigation = header?.querySelector<HTMLElement>('[data-navigation]');
   if (!header || !toggle || !navigation) return;
-  const mobile = matchMedia('(max-width: 47.99rem)');
+  const mobile = matchMedia('(max-width: 63.99rem)');
   function setOpen(open: boolean, returnFocus = false): void {
     if (!toggle || !navigation) return;
     toggle.setAttribute('aria-expanded', String(open));

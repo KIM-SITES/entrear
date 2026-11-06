@@ -7,7 +7,7 @@ import { tmpdir } from 'node:os';
 import { openBrowser } from './lib/browser.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const artifacts = join(root, 'docs/validacao/etapa-2');
+const artifacts = join(root, 'docs/validacao/etapa-3/comercial');
 const edge = process.argv.includes('--edge');
 await mkdir(artifacts, { recursive: true });
 const report = { browser: edge ? 'Edge' : 'Chrome', scenarios: [], behavior: {} };
@@ -45,7 +45,7 @@ try {
       fontsLoaded: [...document.fonts].every(f => f.status === 'loaded'),
       linksValid: [...document.querySelectorAll('a')].every(a => !a.hash || new URL(a.href).origin !== location.origin || document.getElementById(a.hash.slice(1))),
       fieldsEnabled: !document.querySelector('[data-quote-fields]').disabled,
-      noStage3: !document.querySelector('#aplicacoes, #entrear, #atendimento, #duvidas'),
+      editorialIntegrated: ['aplicacoes','entrear','atendimento','regiao','duvidas'].every(id => document.getElementById(id)),
       demoVisible: document.body.textContent.includes('Projeto demonstrativo · empresa fictícia'),
       robots: document.querySelector('meta[name=robots]').content,
       reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
@@ -57,7 +57,7 @@ try {
     assert.equal(facts.width, view.width, view.name);
     assert.equal(facts.overflow, false, view.name);
     assert.equal(facts.headings, 1);
-    for (const field of ['imagesLoaded', 'imagesDescribed', 'fontsLoaded', 'linksValid', 'fieldsEnabled', 'noStage3', 'demoVisible', 'reducedMotion']) assert.ok(facts[field], `${view.name}: ${field}`);
+    for (const field of ['imagesLoaded', 'imagesDescribed', 'fontsLoaded', 'linksValid', 'fieldsEnabled', 'editorialIntegrated', 'demoVisible', 'reducedMotion']) assert.ok(facts[field], `${view.name}: ${field}`);
     assert.equal(facts.transitionDuration, '0s');
     assert.equal(facts.robots, 'noindex, nofollow');
     if (!edge && ['desktop', 'mobile'].includes(view.name)) {

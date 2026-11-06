@@ -1,0 +1,25 @@
+---
+import { Picture } from 'astro:assets';
+import PhotoCredit from '@/components/media/PhotoCredit.astro';
+import type { EditorialPhoto } from '@/data/editorial-media';
+interface Props { photo: EditorialPhoto; primary?: boolean; inverse?: boolean; detail?: boolean; }
+const { photo, primary = false, inverse = false, detail = false } = Astro.props;
+---
+<figure class:list={['editorial-photo', { primary, detail, inverse }]}>
+  <Picture src={photo.image} alt={photo.alt} widths={[360, 600, 900, 1400]} sizes={detail ? '(min-width: 90rem) 700px, (min-width: 48rem) 52vw, calc(160vw - 4rem)' : primary ? '(min-width: 90rem) 750px, (min-width: 48rem) 54vw, calc(100vw - 2.5rem)' : '(min-width: 90rem) 550px, (min-width: 48rem) 40vw, calc(100vw - 2.5rem)'} formats={['avif', 'webp']} loading="lazy" />
+  <figcaption><span>{photo.disclaimer}</span><PhotoCredit {...photo} inverse={inverse} /></figcaption>
+</figure>
+<style>
+  figure { min-width: 0; }
+  figure :global(img) { width: 100%; height: auto; aspect-ratio: 1.85; object-fit: cover; }
+  .primary :global(img) { aspect-ratio: .96; object-position: 50% 44%; }
+  .detail :global(picture) { display: block; aspect-ratio: 1.25; overflow: hidden; }
+  .detail :global(img) { width: 160%; max-width: none; height: 100%; aspect-ratio: auto; object-position: 0 50%; }
+  figcaption { display: flex; flex-direction: column; gap: var(--space-1); margin-top: var(--space-3); font-size: .75rem; line-height: 1.5; color: var(--text-secondary); }
+  .inverse figcaption { color: var(--color-glass); }
+  @media (max-width: 47.99rem) {
+    .primary :global(img) { aspect-ratio: .9; }
+    figure :global(img) { aspect-ratio: 1.5; }
+    .detail :global(picture) { aspect-ratio: 1.4; }
+  }
+</style>

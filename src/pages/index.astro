@@ -5,10 +5,15 @@ import SiteFooter from '@/components/layout/SiteFooter.astro';
 import Hero from '@/components/commercial/Hero.astro';
 import Services from '@/components/commercial/Services.astro';
 import QuoteSection from '@/components/commercial/QuoteSection.astro';
+import Applications from '@/components/editorial/Applications.astro';
+import About from '@/components/editorial/About.astro';
+import Process from '@/components/editorial/Process.astro';
+import Coverage from '@/components/editorial/Coverage.astro';
+import FAQ from '@/components/editorial/FAQ.astro';
 ---
 <BaseLayout title="Entrear Climatização — Conforto tem medida · demonstração">
   <SiteHeader slot="header" />
-  <div data-commercial><Hero /><Services /><QuoteSection /></div>
+  <div data-commercial><Hero /><Services /><Applications /><About /><Process /><Coverage /><FAQ /><QuoteSection /></div>
   <SiteFooter slot="footer" />
 </BaseLayout>
 <script>
@@ -25,5 +30,5 @@ import QuoteSection from '@/components/commercial/QuoteSection.astro';
 <style is:global>
   html:has([data-commercial]) { --anchor-offset: 7.5rem; scroll-padding-block-start: 0; }
   @media (prefers-reduced-motion: no-preference) { html:has([data-commercial]) { scroll-behavior: smooth; } }
-  @media (max-width: 47.99rem) { html:has([data-commercial]) { --anchor-offset: 1rem; } }
+  @media (max-width: 63.99rem) { html:has([data-commercial]) { --anchor-offset: 1rem; } }
 </style>

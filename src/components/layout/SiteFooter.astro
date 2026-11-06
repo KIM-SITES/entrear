@@ -1,17 +1,40 @@
 ---
 import Container from './Container.astro';
 import DemoNotice from '@/components/ui/DemoNotice.astro';
+import BrandLockup from '@/components/brand/BrandLockup.astro';
+import { editorialNavigation, complementaryNavigation } from '@/data/editorial-content';
 ---
-<footer>
+<footer class="site-footer">
   <Container>
-    <div class="footer-row"><DemoNotice /><a href="#inicio">Voltar ao início ↑</a></div>
-    <p>Entrear Climatização é uma empresa fictícia. Fotografias ilustrativas não representam equipe ou serviços executados.</p>
+    <div class="footer-main">
+      <div class="footer-brand"><a href="#inicio" aria-label="Entrear Climatização — início"><BrandLockup inverse /></a><p class="tagline">Conforto tem medida.</p><p>Instalação e manutenção como ponto de partida para pensar o espaço.</p></div>
+      <nav aria-label="Serviços e conteúdo institucional"><p class="nav-title">Explore a Entrear</p>{editorialNavigation.map(item => <a href={item.href}>{item.label}</a>)}</nav>
+      <nav aria-label="Atendimento e demonstração"><p class="nav-title">Entenda o percurso</p>{complementaryNavigation.map(item => <a href={`#${item.section}`}>{item.label}</a>)}<a href="#inicio">Voltar ao início <span aria-hidden="true">↑</span></a></nav>
+    </div>
+    <div class="footer-disclosure"><DemoNotice inverse /><p>Entrear Climatização é uma empresa fictícia criada para portfólio. Não há contratação, envio de pedidos ou operação comercial. Fotografias ilustrativas não representam clientes, equipe, sede ou serviços executados pela marca.</p></div>
+    <details class="credits"><summary>Créditos e licenças <span aria-hidden="true">+</span></summary><div class="credits-content"><p>Fotografias de Caroline Badran (Unsplash), Max Vakhtbovych, Vicky Tran e José Andrés Pacheco Cortes (Pexels). Cada imagem possui um link para sua fonte.</p><div class="license-links"><a href="https://unsplash.com/license">Licença Unsplash</a><a href="https://www.pexels.com/license/">Licença Pexels</a><a href="/fonts/licenses/archivo-OFL.txt">Archivo · SIL OFL 1.1</a><a href="/fonts/licenses/instrument-sans-OFL.txt">Instrument Sans · SIL OFL 1.1</a></div></div></details>
   </Container>
 </footer>
 <style>
-  footer { border-top: 1px solid var(--border-subtle); padding-block: var(--space-6); }
-  .footer-row { display: flex; justify-content: space-between; align-items: center; gap: var(--space-5); }
-  a { min-height: 44px; display: inline-flex; align-items: center; font-size: var(--type-small); }
-  p { font-size: var(--type-caption); color: var(--text-secondary); max-width: 70ch; margin-top: var(--space-3); }
-  @media (max-width: 47.99rem) { .footer-row { align-items: flex-start; flex-direction: column; gap: var(--space-2); } }
+  .site-footer { background: var(--surface-inverse); color: var(--text-inverse); --focus-color: var(--color-paper); padding-block: var(--space-8) var(--space-5); }
+  .footer-main { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: var(--space-8); padding-bottom: var(--space-8); }
+  .footer-brand > p { max-width: 31ch; color: var(--color-glass); font-size: var(--type-small); }
+  .footer-brand .tagline { margin-block: var(--space-5) var(--space-3); color: var(--text-inverse); font-size: var(--type-lead); }
+  nav { min-width: 0; }
+  .nav-title { color: var(--color-glass); font-size: var(--type-caption); margin-bottom: var(--space-3); }
+  a { min-height: 44px; display: flex; gap: var(--space-3); align-items: center; width: fit-content; font-size: var(--type-small); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .footer-disclosure { display: grid; grid-template-columns: 1fr 1.6fr; gap: var(--space-7); padding-block: var(--space-6); border-top: 1px solid #61737e; }
+  .footer-disclosure > p, .credits-content > p { max-width: 75ch; color: var(--color-glass); font-size: var(--type-caption); }
+  .credits { border-top: 1px solid #61737e; }
+  summary { display: flex; justify-content: space-between; align-items: center; gap: var(--space-5); min-height: 52px; padding-block: var(--space-3); list-style: none; font-size: var(--type-small); }
+  summary::-webkit-details-marker { display: none; }
+  summary span { font-size: 1.5rem; }
+  details[open] summary span { transform: rotate(45deg); }
+  summary:hover { text-decoration: underline; }
+  summary:focus-visible { outline-offset: 0; }
+  .credits-content { padding-block: var(--space-3) var(--space-5); }
+  .license-links { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); margin-top: var(--space-3); }
+  .license-links a { text-decoration: underline; font-size: var(--type-caption); }
+  @media (max-width: 47.99rem) { .footer-main, .footer-disclosure { grid-template-columns: 1fr; gap: var(--space-7); } .footer-main { padding-bottom: var(--space-7); } .footer-disclosure { gap: var(--space-4); } }
 </style>
