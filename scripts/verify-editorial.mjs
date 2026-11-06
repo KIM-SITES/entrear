@@ -6,13 +6,13 @@ import { fileURLToPath } from 'node:url';
 import { openBrowser } from './lib/browser.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const artifacts = join(root, 'docs/validacao/etapa-3');
+const artifacts = join(root, 'docs/validacao/etapa-4/editorial');
 const edge = process.argv.includes('--edge');
 await mkdir(artifacts, { recursive: true });
 const report = { browser: edge ? 'Edge' : 'Chrome', scenarios: [], behavior: {} };
-const protectedFiles = JSON.parse(await readFile(join(root, 'docs/referencias/etapa-2.sha256.json'), 'utf8'));
+const protectedFiles = JSON.parse(await readFile(join(root, 'docs/referencias/etapa-3.sha256.json'), 'utf8'));
 for (const [path, hash] of Object.entries(protectedFiles)) {
-  assert.equal(createHash('sha256').update(await readFile(join(root, path))).digest('hex'), hash, `Regressão da etapa 2: ${path}`);
+  assert.equal(createHash('sha256').update(await readFile(join(root, path))).digest('hex'), hash, `Regressão dos conteúdos aprovados: ${path}`);
 }
 report.preservedFiles = Object.keys(protectedFiles).length;
 const browser = await openBrowser(root, edge);
@@ -28,6 +28,7 @@ async function capture(page, name, selector) {
     document.activeElement?.blur();
     return {x: 0, y: top, width: innerWidth, height: Math.min(el.getBoundingClientRect().height + offset, document.documentElement.scrollHeight - top), scale: 1};
   })()`);
+  await page.evaluate('new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))');
   const shot = await page.call('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true, clip: bounds });
   await writeFile(join(artifacts, name), Buffer.from(shot.data, 'base64'));
 }
@@ -85,6 +86,7 @@ try {
 
     if (!edge && ['desktop', 'mobile'].includes(view.name)) {
       await e('document.activeElement?.blur(); scrollTo({top:0,behavior:"instant"})');
+      await e('new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))');
       const full = await page.call('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true, clip: { x: 0, y: 0, width: view.width, height: facts.height, scale: 1 } });
       await writeFile(join(artifacts, `${view.name}-completo.png`), Buffer.from(full.data, 'base64'));
       for (const id of ['inicio', 'servicos', 'aplicacoes', 'entrear', 'atendimento', 'regiao', 'duvidas', 'orcamento']) await capture(page, `${id}-${view.name}.png`, `#${id}`);

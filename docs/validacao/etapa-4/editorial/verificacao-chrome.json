@@ -1,0 +1,252 @@
+{
+  "browser": "Chrome",
+  "scenarios": [
+    {
+      "view": "desktop",
+      "width": 1440,
+      "height": 9175,
+      "overflow": false,
+      "uniqueIds": true,
+      "sectionOrder": [
+        "inicio",
+        "servicos",
+        "aplicacoes",
+        "entrear",
+        "atendimento",
+        "regiao",
+        "duvidas",
+        "orcamento"
+      ],
+      "applicationCount": 3,
+      "applicationPhotos": true,
+      "processSteps": 4,
+      "coverage": [
+        "Cotia",
+        "Itapevi",
+        "Barueri",
+        "Jandira"
+      ],
+      "faqCount": 7,
+      "allPhotosLoaded": true,
+      "inverseFocus": "#eef1f1",
+      "animatedEditorial": false,
+      "fonts": [
+        "Archivo",
+        "Instrument Sans"
+      ]
+    },
+    {
+      "view": "mobile",
+      "width": 390,
+      "height": 13007,
+      "overflow": false,
+      "uniqueIds": true,
+      "sectionOrder": [
+        "inicio",
+        "servicos",
+        "aplicacoes",
+        "entrear",
+        "atendimento",
+        "regiao",
+        "duvidas",
+        "orcamento"
+      ],
+      "applicationCount": 3,
+      "applicationPhotos": true,
+      "processSteps": 4,
+      "coverage": [
+        "Cotia",
+        "Itapevi",
+        "Barueri",
+        "Jandira"
+      ],
+      "faqCount": 7,
+      "allPhotosLoaded": true,
+      "inverseFocus": "#eef1f1",
+      "animatedEditorial": false,
+      "fonts": [
+        "Archivo",
+        "Instrument Sans"
+      ]
+    },
+    {
+      "view": "estreito",
+      "width": 320,
+      "height": 13483,
+      "overflow": false,
+      "uniqueIds": true,
+      "sectionOrder": [
+        "inicio",
+        "servicos",
+        "aplicacoes",
+        "entrear",
+        "atendimento",
+        "regiao",
+        "duvidas",
+        "orcamento"
+      ],
+      "applicationCount": 3,
+      "applicationPhotos": true,
+      "processSteps": 4,
+      "coverage": [
+        "Cotia",
+        "Itapevi",
+        "Barueri",
+        "Jandira"
+      ],
+      "faqCount": 7,
+      "allPhotosLoaded": true,
+      "inverseFocus": "#eef1f1",
+      "animatedEditorial": false,
+      "fonts": [
+        "Archivo",
+        "Instrument Sans"
+      ]
+    },
+    {
+      "view": "tablet",
+      "width": 820,
+      "height": 8716,
+      "overflow": false,
+      "uniqueIds": true,
+      "sectionOrder": [
+        "inicio",
+        "servicos",
+        "aplicacoes",
+        "entrear",
+        "atendimento",
+        "regiao",
+        "duvidas",
+        "orcamento"
+      ],
+      "applicationCount": 3,
+      "applicationPhotos": true,
+      "processSteps": 4,
+      "coverage": [
+        "Cotia",
+        "Itapevi",
+        "Barueri",
+        "Jandira"
+      ],
+      "faqCount": 7,
+      "allPhotosLoaded": true,
+      "inverseFocus": "#eef1f1",
+      "animatedEditorial": false,
+      "fonts": [
+        "Archivo",
+        "Instrument Sans"
+      ]
+    },
+    {
+      "view": "limite-menu",
+      "width": 1024,
+      "height": 8406,
+      "overflow": false,
+      "uniqueIds": true,
+      "sectionOrder": [
+        "inicio",
+        "servicos",
+        "aplicacoes",
+        "entrear",
+        "atendimento",
+        "regiao",
+        "duvidas",
+        "orcamento"
+      ],
+      "applicationCount": 3,
+      "applicationPhotos": true,
+      "processSteps": 4,
+      "coverage": [
+        "Cotia",
+        "Itapevi",
+        "Barueri",
+        "Jandira"
+      ],
+      "faqCount": 7,
+      "allPhotosLoaded": true,
+      "inverseFocus": "#eef1f1",
+      "animatedEditorial": false,
+      "fonts": [
+        "Archivo",
+        "Instrument Sans"
+      ]
+    },
+    {
+      "view": "texto-200",
+      "width": 390,
+      "height": 35429,
+      "overflow": false,
+      "uniqueIds": true,
+      "sectionOrder": [
+        "inicio",
+        "servicos",
+        "aplicacoes",
+        "entrear",
+        "atendimento",
+        "regiao",
+        "duvidas",
+        "orcamento"
+      ],
+      "applicationCount": 3,
+      "applicationPhotos": true,
+      "processSteps": 4,
+      "coverage": [
+        "Cotia",
+        "Itapevi",
+        "Barueri",
+        "Jandira"
+      ],
+      "faqCount": 7,
+      "allPhotosLoaded": true,
+      "inverseFocus": "#eef1f1",
+      "animatedEditorial": false,
+      "fonts": [
+        "Archivo",
+        "Instrument Sans"
+      ]
+    }
+  ],
+  "behavior": {
+    "faq": "Enter, Espaço, Tab, foco visível, respostas simultâneas e ausência de obstrução aprovados nos seis cenários",
+    "anchors": "Destinos do rodapé sem sobreposição; serviço, URL, rascunho e mensagem preservados durante a navegação",
+    "mobile": "Menu ampliado fecha ao navegar, transfere foco ao destino e mantém serviço e URL; Tab continua a partir da seção",
+    "noJavaScript": "Dúvidas nativas e navegação funcionam; orçamento mantém fallback e campos desabilitados"
+  },
+  "preservedFiles": 69,
+  "version": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.38",
+    "revision": "@a733b5afbb3ba618844ff8876b89ad1a774b2f18",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  },
+  "accessibility": [
+    {
+      "role": "main",
+      "name": ""
+    },
+    {
+      "role": "contentinfo",
+      "name": ""
+    },
+    {
+      "role": "navigation",
+      "name": "Navegação principal"
+    },
+    {
+      "role": "navigation",
+      "name": "Serviços e conteúdo institucional"
+    },
+    {
+      "role": "navigation",
+      "name": "Atendimento e demonstração"
+    }
+  ],
+  "requests": {
+    "total": 117,
+    "external": 0,
+    "nonGet": 0
+  },
+  "errors": [],
+  "passed": true
+}

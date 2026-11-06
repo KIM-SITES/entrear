@@ -16,7 +16,9 @@
     "verify:foundation": "node scripts/verify-foundation.mjs",
     "test:quote": "node --test scripts/quote.test.mjs",
     "verify:commercial": "node scripts/verify-commercial.mjs",
-    "verify:editorial": "node scripts/verify-editorial.mjs"
+    "verify:editorial": "node scripts/verify-editorial.mjs",
+    "verify:motion": "node scripts/verify-motion.mjs",
+    "record:hero": "node scripts/record-hero.mjs"
   },
   "dependencies": {
     "astro": "7.4.7"

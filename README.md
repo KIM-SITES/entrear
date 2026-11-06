@@ -2,7 +2,7 @@
 
 Website demonstrativo de uma empresa fictícia, baseado no **conceito C — Conforto tem medida**.
 
-**Etapa atual: 3 de 5 — experiência editorial completa.** Aplicações demonstrativas, apresentação da Entrear, percurso de atendimento, região ilustrativa, perguntas frequentes e rodapé integrado. Hero, serviços e orçamento da Etapa 2 preservados. A Etapa 4 aguarda avaliação e autorização.
+**Etapa atual: 4 de 5 — interações e motion design.** Vãos do hero refinados, transição de serviço interrompível, navegação com seção atual e microinterações acessíveis. Conteúdo editorial, serviços e orçamento preservados. A Etapa 5 aguarda avaliação e autorização.
 
 ## Executar no VS Code
 
@@ -36,10 +36,15 @@ $env:ASTRO_TELEMETRY_DISABLED = '1'
 | `npm.cmd run verify:commercial -- --edge` | Mesmos cenários no Edge |
 | `npm.cmd run verify:editorial` | Seções editoriais, âncoras, teclado e capturas no Chrome |
 | `npm.cmd run verify:editorial -- --edge` | Mesmos cenários editoriais no Edge |
+| `npm.cmd run verify:motion` | Estados do hero, inversões rápidas, resize e movimento reduzido no Chrome |
+| `npm.cmd run verify:motion -- --edge` | Mesmos cenários de movimento no Edge |
+| `npm.cmd run record:hero` | Vídeos WebM e sequências de quadros reais, sem instalar encoder |
 | `npm.cmd run verify:foundation` | Regressão da prancha aprovada na nova rota |
 | `npm.cmd run verify:foundation -- --edge` | Regressão da fundação no Edge |
 
-Os verificadores visuais requerem um build anterior concluído, Chrome ou Edge local e permissão para processos e servidor localhost. Usam módulos nativos do Node, sem dependências adicionais. `ENTREAR_BROWSER_PATH` aceita outro executável compatível com Chrome DevTools Protocol. Novas evidências ficam em `docs/validacao/etapa-3/`; as originais são preservadas. Não execute o build enquanto um verificador estiver lendo `dist/`.
+Os verificadores visuais requerem um build anterior concluído, Chrome ou Edge local e permissão para processos e servidor localhost. Usam módulos nativos do Node, sem dependências adicionais. `ENTREAR_BROWSER_PATH` aceita outro executável compatível com Chrome DevTools Protocol. Novas evidências ficam em `docs/validacao/etapa-4/`; as originais são preservadas. Não execute o build enquanto um verificador estiver lendo `dist/`.
+
+Abra [o visualizador de interações](docs/validacao/etapa-4/interacoes.html) no navegador para os vídeos desktop/mobile e os quadros extraídos. A reprodução é manual; a gravação tem taxa variável e não substitui a interação no site ao vivo.
 
 ## Estrutura
 
@@ -58,7 +63,7 @@ src/
   layouts/       documento HTML e slots
   lib/           estado do serviço e regras do orçamento
   pages/         página comercial e /sistema-visual/
-  scripts/       navegação, seleção e controle do formulário
+  scripts/       menu, seção atual, seleção e controle do formulário
   styles/        tokens, fontes e estilos globais aprovados
   types/         contratos dos conteúdos
 public/          fontes locais, licenças e favicon
@@ -71,7 +76,7 @@ prototipos/      três referências preservadas
 
 Astro **7.4.7**, TypeScript **6.0.3** estrito, **@astrojs/check 0.9.12**, CSS próprio e JavaScript de cliente modular. Nenhuma dependência adicionada nesta etapa. A saída continua estática, sem backend, banco de dados, CMS, analytics ou recursos externos carregados pela página.
 
-Archivo e Instrument Sans são locais. As fotos possuem alternativas AVIF/WebP e fallback JPEG. O hero tem prioridade de carregamento; imagens dos serviços e das novas seções usam carregamento tardio. Dúvidas e créditos usam expansão nativa, inclusive sem JavaScript.
+Archivo e Instrument Sans são locais. As fotos possuem alternativas AVIF/WebP e fallback JPEG. O hero tem prioridade de carregamento; imagens dos serviços e das seções editoriais usam carregamento tardio. Dúvidas e créditos usam expansão nativa, inclusive sem JavaScript. O hero usa uma fotografia imóvel e planos que abrem em 420/560ms; a preferência por movimento reduzido apresenta os estados imediatamente. Não há animações automáticas de seção ou loops.
 
 O serviço aparece em `?servico=instalacao` ou `?servico=manutencao`. Ambiente, município e observações permanecem somente na memória/DOM da página e são descartados ao sair ou recarregar. Não há telefone, WhatsApp ou envio. A cópia usa a permissão do navegador; se negada, o texto fica selecionado para cópia manual.
 
@@ -79,19 +84,23 @@ Regiões ilustrativas: **Cotia, Itapevi, Barueri e Jandira**. Fotografias são r
 
 ## Documentação e capturas
 
-- [Etapa 3: arquivos, direção visual, licenças, testes e capturas por seção](docs/etapa-3.md)
-- [Desktop completo](docs/validacao/etapa-3/desktop-completo.png)
-- [Mobile completo](docs/validacao/etapa-3/mobile-completo.png)
-- [Orçamento desktop](docs/validacao/etapa-3/comercial/orcamento-desktop.png)
-- [Orçamento mobile](docs/validacao/etapa-3/comercial/orcamento-mobile.png)
+- [Etapa 4: arquivos, decisões, revisão visual e testes](docs/etapa-4.md)
+- [Interações, vídeos e sequências](docs/validacao/etapa-4/interacoes.html)
+- [Hero desktop: instalação](docs/validacao/etapa-4/hero-instalacao-desktop.png) e [manutenção](docs/validacao/etapa-4/hero-manutencao-desktop.png)
+- [Hero mobile: instalação](docs/validacao/etapa-4/hero-instalacao-mobile.png) e [manutenção](docs/validacao/etapa-4/hero-manutencao-mobile.png)
+- [Desktop completo](docs/validacao/etapa-4/editorial/desktop-completo.png)
+- [Mobile completo](docs/validacao/etapa-4/editorial/mobile-completo.png)
+- [Orçamento desktop](docs/validacao/etapa-4/comercial/orcamento-desktop.png)
+- [Orçamento mobile](docs/validacao/etapa-4/comercial/orcamento-mobile.png)
+- [Entrega original da Etapa 3 e licenças das fotografias](docs/etapa-3.md)
 - [Entrega original da Etapa 2](docs/etapa-2.md)
 - [Sistema visual e proporções da marca](docs/sistema-visual.md)
 - [Planejamento e arquitetura originais](docs/arquitetura.md)
 - [Recursos da fundação e suas licenças](docs/recursos-visuais.md)
 - [Entrega original da Etapa 1](docs/etapa-1.md)
 
-Os documentos das etapas anteriores registram o estado de cada entrega; a evolução atual está em `docs/etapa-3.md`.
+Os documentos das etapas anteriores registram o estado de cada entrega; a evolução atual está em `docs/etapa-4.md`.
 
-**Commit sugerido, não executado:** `feat: completa experiência editorial demonstrativa da Entrear`.
+**Commit sugerido, não executado:** `feat: refina vãos do hero e interações da Entrear`.
 
-A Etapa 4 depende de avaliação e autorização explícita. Nela deverá ser avaliada a continuidade visual dos recortes fotográficos do hero, além da coreografia final de movimento.
+A Etapa 4 aguarda avaliação. A Etapa 5 depende de autorização explícita.

@@ -10,6 +10,7 @@ import About from '@/components/editorial/About.astro';
 import Process from '@/components/editorial/Process.astro';
 import Coverage from '@/components/editorial/Coverage.astro';
 import FAQ from '@/components/editorial/FAQ.astro';
+import '@/styles/interactions.css';
 ---
 <BaseLayout title="Entrear Climatização — Conforto tem medida · demonstração">
   <SiteHeader slot="header" />
@@ -21,10 +22,12 @@ import FAQ from '@/components/editorial/FAQ.astro';
   import { initNavigation } from '@/scripts/navigation';
   import { initServiceSelection } from '@/scripts/service-selection';
   import { initQuoteForm } from '@/scripts/quote-form';
+  import { initSectionNavigation } from '@/scripts/section-navigation';
   const state = createServiceState(serviceFromSearch(window.location.search));
   initNavigation();
   initServiceSelection(state);
   initQuoteForm(state);
+  initSectionNavigation();
   document.documentElement.dataset.commercialReady = 'true';
 </script>
 <style is:global>

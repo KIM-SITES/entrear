@@ -1,0 +1,62 @@
+[
+  {
+    "file": "hero-desktop.webm",
+    "width": 1440,
+    "height": 1099,
+    "codec": "video/webm;codecs=vp9",
+    "bytes": 570526,
+    "frames": 89,
+    "received": 139,
+    "durationMs": 5700,
+    "medianActiveFrameIntervalMs": 26.7,
+    "capture": "Chrome DevTools screencast; quadros reais, sem interpolação",
+    "actions": [
+      {
+        "key": "ArrowRight",
+        "at": 766
+      },
+      {
+        "key": "ArrowLeft",
+        "at": 1991
+      },
+      {
+        "key": "ArrowRight",
+        "at": 3184
+      },
+      {
+        "key": "ArrowLeft",
+        "at": 4369
+      }
+    ]
+  },
+  {
+    "file": "hero-mobile.webm",
+    "width": 390,
+    "height": 929,
+    "codec": "video/webm;codecs=vp9",
+    "bytes": 488312,
+    "frames": 161,
+    "received": 161,
+    "durationMs": 5705,
+    "medianActiveFrameIntervalMs": 15.5,
+    "capture": "Chrome DevTools screencast; quadros reais, sem interpolação",
+    "actions": [
+      {
+        "key": "ArrowRight",
+        "at": 782
+      },
+      {
+        "key": "ArrowLeft",
+        "at": 1965
+      },
+      {
+        "key": "ArrowRight",
+        "at": 3171
+      },
+      {
+        "key": "ArrowLeft",
+        "at": 4365
+      }
+    ]
+  }
+]

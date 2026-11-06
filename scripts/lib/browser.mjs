@@ -53,6 +53,7 @@ export async function openBrowser(root, edge = false) {
     let next = 0;
     const pending = new Map();
     const errors = [], requests = [];
+    const eventListeners = new Set();
     ws.addEventListener('message', event => {
       const message = JSON.parse(event.data);
       if (pending.has(message.id)) {
@@ -63,6 +64,7 @@ export async function openBrowser(root, edge = false) {
       if (message.method === 'Runtime.exceptionThrown') errors.push(message.params.exceptionDetails.text);
       if (message.method === 'Network.responseReceived' && message.params.response.status >= 400) errors.push(`${message.params.response.status} ${message.params.response.url}`);
       if (message.method === 'Network.requestWillBeSent') requests.push({ method: message.params.request.method, url: message.params.request.url });
+      if (message.method) eventListeners.forEach(listener => listener(message));
     });
     const send = (method, params = {}, sessionId) => new Promise((resolve, reject) => {
       const id = ++next;
@@ -128,6 +130,8 @@ export async function openBrowser(root, edge = false) {
       }
       return { call, evaluate, navigate, key, click, waitFor, close: () => send('Target.closeTarget', { targetId }) };
     }
-    return { base, send, createPage, errors, requests, close };
+    return { base, send, createPage, errors, requests, close,
+      onEvent(listener) { eventListeners.add(listener); return () => eventListeners.delete(listener); },
+    };
   } catch (error) { await close(); throw error; }
 }

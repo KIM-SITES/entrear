@@ -31,18 +31,23 @@ const photo = commercialMedia.room;
   .main-action { display: inline-flex; gap: var(--space-6); align-items: center; justify-content: center; min-height: 58px; padding: var(--space-4) var(--space-5); background: var(--action-background); color: var(--action-text); text-decoration: none; font-weight: var(--weight-medium); flex: none; border-radius: var(--radius-control); }
   .main-action:hover { background: var(--action-background-hover); }
   .main-action svg { flex: none; }
-  .aperture-frame { position: relative; height: clamp(380px, 38vw, 560px); isolation: isolate; overflow: hidden; }
-  .aperture-frame :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+  /* Uma fotografia imóvel, um eixo compartilhado e dois pares de planos.
+     A geometria cita os vãos da marca sem reduzir o último a uma faixa isolada. */
+  .aperture-frame { --aperture-middle: 52%; --aperture-end: 80%; --aperture-seam: 3px; position: relative; height: clamp(380px, 38vw, 560px); isolation: isolate; overflow: hidden; }
+  .aperture-frame :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 10%; }
   .plane, .opening { position: absolute; background: var(--surface-page); pointer-events: none; }
-  .plane { width: 26%; left: 58%; height: 16.6667%; }
-  .plane--middle-top { top: 0; } .plane--middle-bottom { bottom: 0; }
-  .plane--end-top, .plane--end-bottom { left: 84%; width: 16%; height: 33.3333%; }
-  .plane--end-top { top: 0; } .plane--end-bottom { bottom: 0; }
-  .opening { width: var(--space-2); height: 100%; top: 0; }
-  .opening--middle { left: calc(58% - var(--space-1)); } .opening--end { left: calc(84% - var(--space-1)); }
+  .plane { width: calc(var(--aperture-end) - var(--aperture-middle)); left: var(--aperture-middle); height: 12.5%; transform: scaleY(1); }
+  .plane--middle-top { top: 0; transform-origin: center top; }
+  .plane--middle-bottom { bottom: 0; transform-origin: center bottom; }
+  .plane--end-top, .plane--end-bottom { left: var(--aperture-end); width: calc(100% - var(--aperture-end)); height: 25%; }
+  .plane--end-top { top: 0; transform-origin: center top; }
+  .plane--end-bottom { bottom: 0; transform-origin: center bottom; }
+  .opening { width: var(--aperture-seam); height: 100%; top: 0; }
+  .opening--middle { left: calc(var(--aperture-middle) - var(--aperture-seam) / 2); }
+  .opening--end { left: calc(var(--aperture-end) - var(--aperture-seam) / 2); }
   .hero[data-ready="true"] .plane { transition: transform var(--motion-duration-aperture) var(--motion-ease-standard); }
-  .hero[data-service="manutencao"] .plane--middle-top, .hero[data-service="manutencao"] .plane--end-top { transform: translateY(-100%); }
-  .hero[data-service="manutencao"] .plane--middle-bottom, .hero[data-service="manutencao"] .plane--end-bottom { transform: translateY(100%); }
+  .hero[data-ready="true"] :is(.plane--end-top, .plane--end-bottom) { transition-duration: var(--motion-duration-reveal); }
+  .hero[data-service="manutencao"] .plane { transform: scaleY(0); }
   figcaption { display: flex; justify-content: space-between; gap: var(--space-4); margin-top: var(--space-3); color: var(--text-secondary); font-size: .75rem; line-height: 1.5; }
   @media (max-width: 47.99rem) {
     .hero-intro { padding-block: var(--space-6) var(--space-5); }
@@ -52,10 +57,8 @@ const photo = commercialMedia.room;
     .hero-lead p { font-size: 1rem; max-width: 34ch; }
     .hero-lead .audience { font-size: var(--type-small); }
     .main-action { min-height: 52px; padding-block: var(--space-3); font-size: var(--type-small); }
-    .aperture-frame { height: clamp(225px, 64vw, 400px); }
-    .aperture-frame :global(img) { object-position: 0 0; }
-    .plane { left: 64%; width: 24%; } .plane--end-top, .plane--end-bottom { left: 88%; width: 12%; }
-    .opening--middle { left: calc(64% - var(--space-1)); } .opening--end { left: calc(88% - var(--space-1)); }
+    .aperture-frame { --aperture-middle: 50%; --aperture-end: 78%; --aperture-seam: 2px; height: clamp(248px, 72vw, 430px); }
+    .aperture-frame :global(img) { object-position: 26% 45%; }
     figcaption { flex-direction: column; gap: var(--space-1); font-size: .6875rem; }
   }
 </style>

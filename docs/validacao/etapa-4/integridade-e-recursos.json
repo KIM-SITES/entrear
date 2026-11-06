@@ -1,0 +1,17 @@
+{
+  "bundles": [
+    {
+      "file": "index.astro_astro_type_script_index_0_lang.Br0iFCjW.js",
+      "bytes": 8393,
+      "gzipBytes": 3350
+    }
+  ],
+  "stage3ClientBytes": 6984,
+  "clientBytesAdded": 1409,
+  "foundationScreenshotsIdentical": {
+    "desktop.png": true,
+    "desktop-completo.png": true,
+    "mobile.png": true,
+    "mobile-completo.png": true
+  }
+}

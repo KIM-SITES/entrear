@@ -1,0 +1,23 @@
+/* Abertura é a assinatura do hero. Aqui, apenas retorno à ação da pessoa. */
+.navigation a { position: relative; }
+.navigation a::after { content: ''; position: absolute; inset: auto 0 3px; height: 2px; background: currentColor; opacity: 0; transform: scaleX(0); transform-origin: left center; transition: transform var(--motion-duration-micro) var(--motion-ease-standard), opacity var(--motion-duration-micro) var(--motion-ease-standard); }
+.navigation a[aria-current="location"] { color: var(--color-copper); }
+.navigation a[aria-current="location"]::after { transform: scaleX(1); opacity: 1; }
+.site-footer nav a[aria-current="location"] { text-decoration: underline; text-decoration-thickness: 2px; }
+.navigation a:hover::after, .navigation a:focus-visible::after { transform: scaleX(1); opacity: 1; }
+.faq .disclosure::after { transition: transform var(--motion-duration-micro) var(--motion-ease-standard); }
+.quote .copy:disabled { cursor: progress; opacity: .7; }
+.quote :is(select, textarea)[aria-invalid="true"] { border-width: 1px; box-shadow: inset 0 0 0 1px var(--color-copper); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero .main-action svg, .quote .generate span { transition: transform var(--motion-duration-micro) var(--motion-ease-standard); }
+  .hero .main-action:is(:hover, :focus-visible) svg { transform: translateX(3px); }
+  .services .service-action:is(:hover, :focus-visible) span, .quote .generate:is(:hover, :focus-visible) span { transform: translate(3px, -3px); }
+  .hero .main-action:active, .header-budget:active, .quote :is(.generate, .copy):active { transform: translateY(1px); }
+  .faq details[open] > p { animation: answer-feedback var(--motion-duration-interface) var(--motion-ease-standard); }
+  @keyframes answer-feedback { from { opacity: .92; transform: translateY(-3px); } to { opacity: 1; transform: translateY(0); } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services .service-action:hover span { transform: none; }
+}

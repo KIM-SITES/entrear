@@ -7,7 +7,7 @@ import { tmpdir } from 'node:os';
 import { openBrowser } from './lib/browser.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const artifacts = join(root, 'docs/validacao/etapa-3/comercial');
+const artifacts = join(root, 'docs/validacao/etapa-4/comercial');
 const edge = process.argv.includes('--edge');
 await mkdir(artifacts, { recursive: true });
 const report = { browser: edge ? 'Edge' : 'Chrome', scenarios: [], behavior: {} };
@@ -101,7 +101,7 @@ try {
   await page.key('ArrowRight', 'ArrowRight', 39);
   assert.ok(await e('document.querySelector("[data-service-stage]").dataset.service === "manutencao" && document.querySelector("#quote-service").value === "manutencao" && location.search.includes("manutencao")'));
   assert.equal(await e('getComputedStyle(document.querySelector(".plane")).transitionDuration'), '0.42s');
-  await e('new Promise(r=>setTimeout(r,500))');
+  await page.waitFor('document.getAnimations().length === 0');
   assert.equal(await e('document.getAnimations().length'), 0);
   await page.click('[data-service-link=instalacao]');
   assert.ok(await e('document.activeElement.id === "orcamento" && document.querySelector("#quote-service").value === "instalacao" && location.hash === "#orcamento"'));
@@ -114,6 +114,7 @@ try {
   // Foco e submissão por teclado, sem chamadas a form.submit().
   await e('document.querySelector("button[type=submit]").focus()'); await page.key('Enter', 'Enter', 13, '\r');
   assert.ok(await e('document.activeElement.id === "quote-environment" && document.querySelector("#quote-environment").getAttribute("aria-invalid") === "true" && document.querySelector("#quote-city").getAttribute("aria-invalid") === "true" && document.querySelector("[data-message-preview]").hidden'));
+  assert.ok(await e('getComputedStyle(document.activeElement).outlineWidth === "3px" && getComputedStyle(document.activeElement).outlineOffset === "5px"'), 'Campo inválido mantém o foco de teclado visível');
   await e(`(() => { for (const [id,value] of [['quote-environment','pequeno-negocio'],['quote-city','barueri'],['quote-notes','Sala de exemplo, aparelho instalado.']]) { const el=document.getElementById(id); el.value=value; el.dispatchEvent(new Event(id==='quote-notes'?'input':'change',{bubbles:true})); } })()`);
   await page.click('button[type=submit]');
   assert.ok(await e('!document.querySelector("[data-message-preview]").hidden && document.activeElement.id === "mensagem-titulo" && document.querySelector("[data-message-output]").value.includes("Barueri") && document.querySelector("[data-message-output]").value.includes("Sala de exemplo")'));
@@ -137,7 +138,7 @@ try {
   await page.navigate('/?servico=invalido');
   assert.equal(await e('document.querySelector("#quote-service").value'), 'instalacao');
   report.behavior.quote = 'validação, foco, geração, cópia simulada, cópia negada, edição, URL e descarte aprovados';
-  report.behavior.motion = 'transição de 420 ms por escolha, interrompível, sem loop; movimento reduzido sem transição';
+  report.behavior.motion = 'planos de 420/560 ms por escolha, interrompíveis, sem loop; movimento reduzido sem transição';
   await page.close();
   const noScript = await browser.createPage({ width: 390, height: 844 }, '/', true);
   assert.ok(await noScript.evaluate('document.querySelector("[data-quote-fields]").disabled && document.querySelector("[data-service-fields]").disabled && !document.querySelector("[data-quote-fallback]").hidden && !document.querySelector("[data-navigation]").hidden'));
