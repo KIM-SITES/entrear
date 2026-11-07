@@ -19,25 +19,25 @@ export const applicationStories = [
   {
     id: 'apartamento', title: 'Apartamento', image: 'apartment',
     heading: 'Conforto que conversa com a casa.',
-    description: 'Posição do aparelho, marcenaria e circulação fazem parte da mesma conversa. Neste cenário, o ponto de partida é entender como o ambiente é usado.',
+    description: 'Posição do aparelho, marcenaria e circulação entram no planejamento a partir do uso do ambiente.',
     consideration: 'Observar o espaço e as regras do condomínio antes de definir a instalação.',
   },
   {
     id: 'escritorio', title: 'Escritório', image: 'office',
     heading: 'O espaço de trabalho também conta.',
-    description: 'Mesas, permanência das pessoas e disposição da sala ajudam a orientar a avaliação. A fotografia ilustra um contexto de uso, sem indicar dimensionamento ou solução técnica.',
+    description: 'Disposição das mesas, ocupação e tempo de uso ajudam a orientar a avaliação do ambiente.',
   },
   {
     id: 'comercio', title: 'Pequeno estabelecimento comercial', image: 'shop',
     heading: 'Pensar junto com a rotina.',
-    description: 'Uma pequena cafeteria representa o cenário de comércio. Horários de uso, circulação e acesso ao aparelho são informações úteis para conversar sobre instalação ou manutenção.',
+    description: 'Na pequena cafeteria ilustrada, horários de funcionamento, circulação e acesso ao aparelho são pontos para a conversa.',
   },
 ] as const;
 
 export const companyEditorial = {
   heading: 'Planejar o ar. Respeitar o espaço.',
   introduction: 'A Entrear é uma marca fictícia que propõe um olhar atento para a climatização de residências e pequenos negócios.',
-  description: 'Seu posicionamento parte de uma ideia simples: compreender o ambiente, organizar as decisões e explicar o serviço com clareza. O cuidado com a instalação deve fazer parte do cuidado com o espaço inteiro.',
+  description: 'A proposta é compreender o ambiente, organizar as decisões e explicar o serviço. Planejamento e cuidado com a instalação fazem parte do mesmo processo.',
   principles: [
     { title: 'Planejamento', description: 'Entender a necessidade antes de definir uma solução.' },
     { title: 'Atenção ao ambiente', description: 'Considerar o uso, os elementos existentes e o acabamento.' },
@@ -46,17 +46,17 @@ export const companyEditorial = {
 } as const;
 
 export const editorialProcess = [
-  { id: 'contato', title: 'Você conta o que precisa.', description: 'O contato inicial reúne o serviço desejado, o município e o tipo de ambiente. Na demonstração, você pode preparar essa mensagem com dados fictícios.' },
-  { id: 'entendimento', title: 'O espaço entra na conversa.', description: 'Em um atendimento real, informações sobre o aparelho, o uso do local e as condições de instalação ajudariam na avaliação. Uma visita técnica poderia ser necessária.' },
-  { id: 'proposta', title: 'O escopo fica claro.', description: 'A proposta detalharia o que seria feito, materiais, valores e condições. As dúvidas precisariam ser esclarecidas antes de qualquer aprovação.' },
-  { id: 'execucao', title: 'A execução é combinada.', description: 'Com a proposta aprovada, seriam definidos o agendamento, os acessos ao local e a execução do serviço. Ao final, caberiam orientações sobre o uso e os cuidados com o aparelho.' },
+  { id: 'contato', title: 'Você conta o que precisa.', description: 'Serviço, município e tipo de ambiente iniciam a conversa. Aqui, você prepara essa mensagem com exemplos fictícios.' },
+  { id: 'entendimento', title: 'O espaço entra na conversa.', description: 'Aparelho, uso do local e condições de acesso orientariam a avaliação. Uma visita técnica poderia ser necessária.' },
+  { id: 'proposta', title: 'O escopo fica claro.', description: 'A proposta detalharia serviço, materiais, valores e condições, para esclarecer as dúvidas antes da aprovação.' },
+  { id: 'execucao', title: 'A execução é combinada.', description: 'Após a aprovação, seriam combinados agendamento, acesso e execução, com orientações de uso e cuidado ao final.' },
 ] as const satisfies readonly ProcessStep[];
 
 export const editorialFAQs = [
-  { id: 'instalacao', question: 'O que considerar antes de instalar um ar-condicionado?', answer: 'Reúna informações sobre o ambiente e o modelo do aparelho, se já houver um. Verifique também as regras do condomínio ou do imóvel. A posição das unidades, a infraestrutura e o percurso da instalação precisam ser avaliados por um profissional; uma foto, sozinha, não define a solução.' },
-  { id: 'manutencao', question: 'Como saber qual manutenção o aparelho precisa?', answer: 'Conte o que você percebe: ruído diferente, vazamento, menor resfriamento ou necessidade de cuidado periódico. Essas informações ajudam a iniciar a avaliação, mas não substituem uma inspeção. Consulte as orientações do fabricante para os cuidados e a periodicidade do seu modelo.' },
-  { id: 'orcamento', question: 'Quais informações ajudam no orçamento?', answer: 'Serviço desejado, tipo de ambiente, município e uma breve descrição da necessidade. Em um atendimento real, modelo do aparelho e condições de acesso também poderiam ser solicitados. Aqui, use apenas exemplos fictícios, sem nome, telefone ou endereço.' },
-  { id: 'valores', question: 'O site informa preços ou agenda uma visita?', answer: 'Não. A demonstração não calcula valores, dimensiona aparelhos, oferece prazos ou reserva horários. O formulário prepara uma mensagem de exemplo. Uma contratação real dependeria de avaliação e de condições acordadas com uma prestadora de serviços.' },
+  { id: 'instalacao', question: 'O que considerar antes de instalar um ar-condicionado?', answer: 'Reúna informações sobre o ambiente, o modelo do aparelho e as regras do condomínio ou imóvel. Posição das unidades, infraestrutura e percurso da instalação exigem avaliação profissional; uma foto sozinha não define a solução.' },
+  { id: 'manutencao', question: 'Como saber qual manutenção o aparelho precisa?', answer: 'Descreva ruídos, vazamentos, menor resfriamento ou a necessidade de cuidado periódico. Essas informações iniciam a avaliação, sem substituir uma inspeção. Para os cuidados e a periodicidade do seu modelo, consulte as orientações do fabricante.' },
+  { id: 'orcamento', question: 'Quais informações ajudam no orçamento?', answer: 'Serviço, tipo de ambiente, município e uma descrição da necessidade. Modelo do aparelho e condições de acesso também ajudariam numa avaliação real. Aqui, use exemplos fictícios, sem nome, telefone ou endereço.' },
+  { id: 'valores', question: 'O site informa preços ou agenda uma visita?', answer: 'Não. O formulário prepara uma mensagem de exemplo, sem preços, dimensionamento, prazos ou reservas. Uma contratação real dependeria de avaliação e de condições acordadas com uma prestadora.' },
   { id: 'regiao', question: 'A Entrear atende nos municípios apresentados?', answer: 'Cotia, Itapevi, Barueri e Jandira compõem o cenário ilustrativo deste projeto. A Entrear é fictícia e não possui uma operação comercial ou unidades físicas representadas aqui.' },
   { id: 'fotografias', question: 'As fotografias mostram serviços da Entrear?', answer: 'Não. São fotografias de referência, usadas sob as licenças indicadas nos créditos. Os ambientes, profissionais e trabalhos retratados não têm vínculo com a marca fictícia.' },
   { id: 'envio', question: 'O que acontece com a mensagem que eu gerar?', answer: 'Ela aparece na própria página para você revisar e, se quiser, copiar. Não há envio, WhatsApp, cadastro ou armazenamento no site. O rascunho é descartado ao sair ou recarregar; apenas a escolha pública do serviço pode permanecer na URL. Se você copiar, o texto passa para a área de transferência do seu dispositivo.' },

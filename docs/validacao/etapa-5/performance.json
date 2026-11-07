@@ -1,0 +1,812 @@
+{
+  "tool": "Chrome DevTools Protocol + PerformanceObserver",
+  "lighthouse": {
+    "available": false,
+    "reason": "CLI e módulo não encontrados no projeto, PATH ou cache npx; não instalados."
+  },
+  "conditions": {
+    "origin": "localhost HTTP, servidor estático sem gzip",
+    "cache": "desabilitado e limpo em cada execução",
+    "samples": 3,
+    "windowMs": 6500,
+    "production": false
+  },
+  "runs": [
+    {
+      "profile": "desktop",
+      "sample": 1,
+      "conditions": {
+        "viewport": [
+          1440,
+          1000
+        ],
+        "cpu": 1,
+        "latencyMs": 0,
+        "downloadBytesPerSecond": -1,
+        "uploadBytesPerSecond": -1
+      },
+      "setupErrors": [
+        "404 http://127.0.0.1:55274/favicon.ico"
+      ],
+      "errors": [],
+      "ready": true,
+      "fcp": 200,
+      "lcp": {
+        "time": 200,
+        "size": 734438,
+        "element": "IMG",
+        "url": "http://127.0.0.1:55274/_astro/ambiente-horizontal.CSd9LLUn_Z1HlWl9.avif"
+      },
+      "cls": 0,
+      "domContentLoaded": 123.59999999962747,
+      "load": 125.8999999994412,
+      "transferBytes": 314713,
+      "longTasks": [
+        {
+          "time": 16.59999999962747,
+          "duration": 108
+        }
+      ],
+      "resources": [
+        {
+          "path": "/fonts/archivo.woff2",
+          "type": "link",
+          "bytes": 90404,
+          "duration": 5.599999999627471
+        },
+        {
+          "path": "/fonts/instrument-sans.woff2",
+          "type": "link",
+          "bytes": 30392,
+          "duration": 4.099999999627471
+        },
+        {
+          "path": "/_astro/media.Do0IxtPB.css",
+          "type": "link",
+          "bytes": 6120,
+          "duration": 7.400000000372529
+        },
+        {
+          "path": "/_astro/index.CEFMGtnu.css",
+          "type": "link",
+          "bytes": 33915,
+          "duration": 7.5
+        },
+        {
+          "path": "/_astro/ambiente-horizontal.CSd9LLUn_Z1HlWl9.avif",
+          "type": "img",
+          "bytes": 81973,
+          "duration": 10
+        },
+        {
+          "path": "/_astro/index.astro_astro_type_script_index_0_lang.Br0iFCjW.js",
+          "type": "script",
+          "bytes": 8693,
+          "duration": 7.3999999994412065
+        },
+        {
+          "path": "/_astro/escritorio-referencia.DYNC9VNA_Z1Fn3Pj.avif",
+          "type": "img",
+          "bytes": 21159,
+          "duration": 2.7999999998137355
+        },
+        {
+          "path": "/favicon.svg",
+          "type": "other",
+          "bytes": 528,
+          "duration": 2.6000000005587935
+        }
+      ],
+      "fontsLoaded": true,
+      "heroLoaded": true,
+      "images": [
+        {
+          "source": "/_astro/ambiente-horizontal.CSd9LLUn_Z1HlWl9.avif",
+          "loading": "eager",
+          "loaded": true
+        },
+        {
+          "source": "/_astro/escritorio-referencia.DYNC9VNA_Z1Fn3Pj.avif",
+          "loading": "lazy",
+          "loaded": true
+        },
+        {
+          "source": "/_astro/manutencao-referencia.eMjpAQ56_Z24IA8L.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/residencia-referencia.BryyV6lg_Z1Ucd85.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/escritorio-aplicacao.CarQWrg9_ZAPQVx.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/comercio-referencia.BgCQqEOK_Z1lNpAF.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/escritorio-referencia.DYNC9VNA_2accye.jpg",
+          "loading": "lazy",
+          "loaded": false
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "sample": 2,
+      "conditions": {
+        "viewport": [
+          1440,
+          1000
+        ],
+        "cpu": 1,
+        "latencyMs": 0,
+        "downloadBytesPerSecond": -1,
+        "uploadBytesPerSecond": -1
+      },
+      "setupErrors": [
+        "404 http://127.0.0.1:55295/favicon.ico"
+      ],
+      "errors": [],
+      "ready": true,
+      "fcp": 208,
+      "lcp": {
+        "time": 208,
+        "size": 734438,
+        "element": "IMG",
+        "url": "http://127.0.0.1:55295/_astro/ambiente-horizontal.CSd9LLUn_Z1HlWl9.avif"
+      },
+      "cls": 0,
+      "domContentLoaded": 146.70000000018626,
+      "load": 148.20000000018626,
+      "transferBytes": 314713,
+      "longTasks": [
+        {
+          "time": 34.799999999813735,
+          "duration": 113
+        }
+      ],
+      "resources": [
+        {
+          "path": "/fonts/archivo.woff2",
+          "type": "link",
+          "bytes": 90404,
+          "duration": 9.900000000372529
+        },
+        {
+          "path": "/fonts/instrument-sans.woff2",
+          "type": "link",
+          "bytes": 30392,
+          "duration": 9.299999999813735
+        },
+        {
+          "path": "/_astro/media.Do0IxtPB.css",
+          "type": "link",
+          "bytes": 6120,
+          "duration": 9.699999999254942
+        },
+        {
+          "path": "/_astro/index.CEFMGtnu.css",
+          "type": "link",
+          "bytes": 33915,
+          "duration": 14.100000000558794
+        },
+        {
+          "path": "/_astro/ambiente-horizontal.CSd9LLUn_Z1HlWl9.avif",
+          "type": "img",
+          "bytes": 81973,
+          "duration": 14.600000000558794
+        },
+        {
+          "path": "/_astro/index.astro_astro_type_script_index_0_lang.Br0iFCjW.js",
+          "type": "script",
+          "bytes": 8693,
+          "duration": 13.5
+        },
+        {
+          "path": "/_astro/escritorio-referencia.DYNC9VNA_Z1Fn3Pj.avif",
+          "type": "img",
+          "bytes": 21159,
+          "duration": 3.199999999254942
+        },
+        {
+          "path": "/favicon.svg",
+          "type": "other",
+          "bytes": 528,
+          "duration": 2.1000000005587935
+        }
+      ],
+      "fontsLoaded": true,
+      "heroLoaded": true,
+      "images": [
+        {
+          "source": "/_astro/ambiente-horizontal.CSd9LLUn_Z1HlWl9.avif",
+          "loading": "eager",
+          "loaded": true
+        },
+        {
+          "source": "/_astro/escritorio-referencia.DYNC9VNA_Z1Fn3Pj.avif",
+          "loading": "lazy",
+          "loaded": true
+        },
+        {
+          "source": "/_astro/manutencao-referencia.eMjpAQ56_Z24IA8L.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/residencia-referencia.BryyV6lg_Z1Ucd85.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/escritorio-aplicacao.CarQWrg9_ZAPQVx.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/comercio-referencia.BgCQqEOK_Z1lNpAF.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/escritorio-referencia.DYNC9VNA_2accye.jpg",
+          "loading": "lazy",
+          "loaded": false
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "sample": 3,
+      "conditions": {
+        "viewport": [
+          1440,
+          1000
+        ],
+        "cpu": 1,
+        "latencyMs": 0,
+        "downloadBytesPerSecond": -1,
+        "uploadBytesPerSecond": -1
+      },
+      "setupErrors": [
+        "404 http://127.0.0.1:55317/favicon.ico"
+      ],
+      "errors": [],
+      "ready": true,
+      "fcp": 160,
+      "lcp": {
+        "time": 160,
+        "size": 734438,
+        "element": "IMG",
+        "url": "http://127.0.0.1:55317/_astro/ambiente-horizontal.CSd9LLUn_Z1HlWl9.avif"
+      },
+      "cls": 0.006314424176669745,
+      "domContentLoaded": 112.90000000037253,
+      "load": 124.6000000005588,
+      "transferBytes": 314713,
+      "longTasks": [
+        {
+          "time": 15.5,
+          "duration": 98
+        }
+      ],
+      "resources": [
+        {
+          "path": "/fonts/archivo.woff2",
+          "type": "link",
+          "bytes": 90404,
+          "duration": 6.8999999994412065
+        },
+        {
+          "path": "/fonts/instrument-sans.woff2",
+          "type": "link",
+          "bytes": 30392,
+          "duration": 6.900000000372529
+        },
+        {
+          "path": "/_astro/media.Do0IxtPB.css",
+          "type": "link",
+          "bytes": 6120,
+          "duration": 6.099999999627471
+        },
+        {
+          "path": "/_astro/index.CEFMGtnu.css",
+          "type": "link",
+          "bytes": 33915,
+          "duration": 5.5
+        },
+        {
+          "path": "/_astro/ambiente-horizontal.CSd9LLUn_Z1HlWl9.avif",
+          "type": "img",
+          "bytes": 81973,
+          "duration": 8.700000000186265
+        },
+        {
+          "path": "/_astro/index.astro_astro_type_script_index_0_lang.Br0iFCjW.js",
+          "type": "script",
+          "bytes": 8693,
+          "duration": 7.7000000001862645
+        },
+        {
+          "path": "/_astro/escritorio-referencia.DYNC9VNA_Z1Fn3Pj.avif",
+          "type": "img",
+          "bytes": 21159,
+          "duration": 3.1000000005587935
+        },
+        {
+          "path": "/favicon.svg",
+          "type": "other",
+          "bytes": 528,
+          "duration": 2.3999999994412065
+        }
+      ],
+      "fontsLoaded": true,
+      "heroLoaded": true,
+      "images": [
+        {
+          "source": "/_astro/ambiente-horizontal.CSd9LLUn_Z1HlWl9.avif",
+          "loading": "eager",
+          "loaded": true
+        },
+        {
+          "source": "/_astro/escritorio-referencia.DYNC9VNA_Z1Fn3Pj.avif",
+          "loading": "lazy",
+          "loaded": true
+        },
+        {
+          "source": "/_astro/manutencao-referencia.eMjpAQ56_Z24IA8L.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/residencia-referencia.BryyV6lg_Z1Ucd85.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/escritorio-aplicacao.CarQWrg9_ZAPQVx.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/comercio-referencia.BgCQqEOK_Z1lNpAF.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/escritorio-referencia.DYNC9VNA_2accye.jpg",
+          "loading": "lazy",
+          "loaded": false
+        }
+      ]
+    },
+    {
+      "profile": "mobile-simulado",
+      "sample": 1,
+      "conditions": {
+        "viewport": [
+          390,
+          844
+        ],
+        "cpu": 4,
+        "latencyMs": 150,
+        "downloadBytesPerSecond": 209715,
+        "uploadBytesPerSecond": 96000
+      },
+      "setupErrors": [
+        "404 http://127.0.0.1:55337/favicon.ico"
+      ],
+      "errors": [],
+      "ready": true,
+      "fcp": 1524,
+      "lcp": {
+        "time": 1524,
+        "size": 98278,
+        "element": "IMG",
+        "url": "http://127.0.0.1:55337/_astro/ambiente-horizontal.CSd9LLUn_dGAPh.avif"
+      },
+      "cls": 0,
+      "domContentLoaded": 1374.5999999996275,
+      "load": 1390.7999999998137,
+      "transferBytes": 232300,
+      "longTasks": [
+        {
+          "time": 980.5999999996275,
+          "duration": 402
+        },
+        {
+          "time": 1390.5999999996275,
+          "duration": 64
+        }
+      ],
+      "resources": [
+        {
+          "path": "/fonts/archivo.woff2",
+          "type": "link",
+          "bytes": 90404,
+          "duration": 1072.7000000001863
+        },
+        {
+          "path": "/fonts/instrument-sans.woff2",
+          "type": "link",
+          "bytes": 30392,
+          "duration": 746.7999999998137
+        },
+        {
+          "path": "/_astro/media.Do0IxtPB.css",
+          "type": "link",
+          "bytes": 6120,
+          "duration": 315
+        },
+        {
+          "path": "/_astro/index.CEFMGtnu.css",
+          "type": "link",
+          "bytes": 33915,
+          "duration": 793
+        },
+        {
+          "path": "/_astro/ambiente-horizontal.CSd9LLUn_dGAPh.avif",
+          "type": "img",
+          "bytes": 9998,
+          "duration": 413
+        },
+        {
+          "path": "/_astro/index.astro_astro_type_script_index_0_lang.Br0iFCjW.js",
+          "type": "script",
+          "bytes": 8693,
+          "duration": 335.90000000037253
+        },
+        {
+          "path": "/_astro/escritorio-referencia.DYNC9VNA_14sACB.avif",
+          "type": "img",
+          "bytes": 10721,
+          "duration": 248.8999999994412
+        },
+        {
+          "path": "/favicon.svg",
+          "type": "other",
+          "bytes": 528,
+          "duration": 179.20000000018626
+        }
+      ],
+      "fontsLoaded": true,
+      "heroLoaded": true,
+      "images": [
+        {
+          "source": "/_astro/ambiente-horizontal.CSd9LLUn_dGAPh.avif",
+          "loading": "eager",
+          "loaded": true
+        },
+        {
+          "source": "/_astro/escritorio-referencia.DYNC9VNA_14sACB.avif",
+          "loading": "lazy",
+          "loaded": true
+        },
+        {
+          "source": "/_astro/manutencao-referencia.eMjpAQ56_Z24IA8L.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/residencia-referencia.BryyV6lg_Z1Ucd85.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/escritorio-aplicacao.CarQWrg9_ZAPQVx.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/comercio-referencia.BgCQqEOK_Z1lNpAF.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/escritorio-referencia.DYNC9VNA_2accye.jpg",
+          "loading": "lazy",
+          "loaded": false
+        }
+      ]
+    },
+    {
+      "profile": "mobile-simulado",
+      "sample": 2,
+      "conditions": {
+        "viewport": [
+          390,
+          844
+        ],
+        "cpu": 4,
+        "latencyMs": 150,
+        "downloadBytesPerSecond": 209715,
+        "uploadBytesPerSecond": 96000
+      },
+      "setupErrors": [
+        "404 http://127.0.0.1:55361/favicon.ico"
+      ],
+      "errors": [],
+      "ready": true,
+      "fcp": 1560,
+      "lcp": {
+        "time": 1560,
+        "size": 98278,
+        "element": "IMG",
+        "url": "http://127.0.0.1:55361/_astro/ambiente-horizontal.CSd9LLUn_dGAPh.avif"
+      },
+      "cls": 0,
+      "domContentLoaded": 1400.7000000001863,
+      "load": 1409.6000000005588,
+      "transferBytes": 232300,
+      "longTasks": [
+        {
+          "time": 985.4000000003725,
+          "duration": 419
+        },
+        {
+          "time": 1409.2999999998137,
+          "duration": 78
+        }
+      ],
+      "resources": [
+        {
+          "path": "/fonts/archivo.woff2",
+          "type": "link",
+          "bytes": 90404,
+          "duration": 1056.2000000001863
+        },
+        {
+          "path": "/fonts/instrument-sans.woff2",
+          "type": "link",
+          "bytes": 30392,
+          "duration": 746.4000000003725
+        },
+        {
+          "path": "/_astro/media.Do0IxtPB.css",
+          "type": "link",
+          "bytes": 6120,
+          "duration": 312
+        },
+        {
+          "path": "/_astro/index.CEFMGtnu.css",
+          "type": "link",
+          "bytes": 33915,
+          "duration": 792.2000000001863
+        },
+        {
+          "path": "/_astro/ambiente-horizontal.CSd9LLUn_dGAPh.avif",
+          "type": "img",
+          "bytes": 9998,
+          "duration": 395.70000000018626
+        },
+        {
+          "path": "/_astro/index.astro_astro_type_script_index_0_lang.Br0iFCjW.js",
+          "type": "script",
+          "bytes": 8693,
+          "duration": 337.29999999981374
+        },
+        {
+          "path": "/_astro/escritorio-referencia.DYNC9VNA_14sACB.avif",
+          "type": "img",
+          "bytes": 10721,
+          "duration": 221.80000000074506
+        },
+        {
+          "path": "/favicon.svg",
+          "type": "other",
+          "bytes": 528,
+          "duration": 167.20000000018626
+        }
+      ],
+      "fontsLoaded": true,
+      "heroLoaded": true,
+      "images": [
+        {
+          "source": "/_astro/ambiente-horizontal.CSd9LLUn_dGAPh.avif",
+          "loading": "eager",
+          "loaded": true
+        },
+        {
+          "source": "/_astro/escritorio-referencia.DYNC9VNA_14sACB.avif",
+          "loading": "lazy",
+          "loaded": true
+        },
+        {
+          "source": "/_astro/manutencao-referencia.eMjpAQ56_Z24IA8L.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/residencia-referencia.BryyV6lg_Z1Ucd85.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/escritorio-aplicacao.CarQWrg9_ZAPQVx.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/comercio-referencia.BgCQqEOK_Z1lNpAF.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/escritorio-referencia.DYNC9VNA_2accye.jpg",
+          "loading": "lazy",
+          "loaded": false
+        }
+      ]
+    },
+    {
+      "profile": "mobile-simulado",
+      "sample": 3,
+      "conditions": {
+        "viewport": [
+          390,
+          844
+        ],
+        "cpu": 4,
+        "latencyMs": 150,
+        "downloadBytesPerSecond": 209715,
+        "uploadBytesPerSecond": 96000
+      },
+      "setupErrors": [
+        "404 http://127.0.0.1:55383/favicon.ico"
+      ],
+      "errors": [],
+      "ready": true,
+      "fcp": 1596,
+      "lcp": {
+        "time": 1596,
+        "size": 98278,
+        "element": "IMG",
+        "url": "http://127.0.0.1:55383/_astro/ambiente-horizontal.CSd9LLUn_dGAPh.avif"
+      },
+      "cls": 0,
+      "domContentLoaded": 1434.5999999996275,
+      "load": 1448.5,
+      "transferBytes": 232300,
+      "longTasks": [
+        {
+          "time": 967.0999999996275,
+          "duration": 474
+        },
+        {
+          "time": 1448.2999999998137,
+          "duration": 76
+        }
+      ],
+      "resources": [
+        {
+          "path": "/fonts/archivo.woff2",
+          "type": "link",
+          "bytes": 90404,
+          "duration": 1059.7999999998137
+        },
+        {
+          "path": "/fonts/instrument-sans.woff2",
+          "type": "link",
+          "bytes": 30392,
+          "duration": 749.4000000003725
+        },
+        {
+          "path": "/_astro/media.Do0IxtPB.css",
+          "type": "link",
+          "bytes": 6120,
+          "duration": 300.5
+        },
+        {
+          "path": "/_astro/index.CEFMGtnu.css",
+          "type": "link",
+          "bytes": 33915,
+          "duration": 778.7999999998137
+        },
+        {
+          "path": "/_astro/ambiente-horizontal.CSd9LLUn_dGAPh.avif",
+          "type": "img",
+          "bytes": 9998,
+          "duration": 383.6000000005588
+        },
+        {
+          "path": "/_astro/index.astro_astro_type_script_index_0_lang.Br0iFCjW.js",
+          "type": "script",
+          "bytes": 8693,
+          "duration": 348.5
+        },
+        {
+          "path": "/_astro/escritorio-referencia.DYNC9VNA_14sACB.avif",
+          "type": "img",
+          "bytes": 10721,
+          "duration": 232.90000000037253
+        },
+        {
+          "path": "/favicon.svg",
+          "type": "other",
+          "bytes": 528,
+          "duration": 180.20000000018626
+        }
+      ],
+      "fontsLoaded": true,
+      "heroLoaded": true,
+      "images": [
+        {
+          "source": "/_astro/ambiente-horizontal.CSd9LLUn_dGAPh.avif",
+          "loading": "eager",
+          "loaded": true
+        },
+        {
+          "source": "/_astro/escritorio-referencia.DYNC9VNA_14sACB.avif",
+          "loading": "lazy",
+          "loaded": true
+        },
+        {
+          "source": "/_astro/manutencao-referencia.eMjpAQ56_Z24IA8L.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/residencia-referencia.BryyV6lg_Z1Ucd85.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/escritorio-aplicacao.CarQWrg9_ZAPQVx.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/comercio-referencia.BgCQqEOK_Z1lNpAF.jpg",
+          "loading": "lazy",
+          "loaded": false
+        },
+        {
+          "source": "/_astro/escritorio-referencia.DYNC9VNA_2accye.jpg",
+          "loading": "lazy",
+          "loaded": false
+        }
+      ]
+    }
+  ],
+  "bundles": [
+    {
+      "file": "index.astro_astro_type_script_index_0_lang.Br0iFCjW.js",
+      "bytes": 8393,
+      "gzipBytes": 3350
+    }
+  ],
+  "version": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.38",
+    "revision": "@a733b5afbb3ba618844ff8876b89ad1a774b2f18",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  },
+  "medians": {
+    "desktop": {
+      "fcpMs": 200,
+      "lcpMs": 200,
+      "cls": 0,
+      "transferBytes": 314713
+    },
+    "mobile-simulado": {
+      "fcpMs": 1560,
+      "lcpMs": 1560,
+      "cls": 0,
+      "transferBytes": 232300
+    }
+  },
+  "limitations": [
+    "Medições de laboratório em localhost, sem hospedagem/CDN/TLS de produção.",
+    "CPU 4x é relativa à máquina local, não corresponde a um aparelho específico.",
+    "Sem pontuação Lighthouse, INP de campo ou certificação de acessibilidade.",
+    "Observação da navegação inicial por 6,5s; métricas podem variar entre execuções."
+  ]
+}

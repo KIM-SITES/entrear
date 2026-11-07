@@ -11,7 +11,7 @@ export async function openBrowser(root, edge = false) {
     ? 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'
     : 'C:/Program Files/Google/Chrome/Application/chrome.exe');
   await access(executable); await access(join(output, 'index.html'));
-  const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.avif': 'image/avif', '.webp': 'image/webp', '.jpg': 'image/jpeg' };
+  const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.avif': 'image/avif', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.txt': 'text/plain; charset=utf-8' };
   const server = createServer(async (req, res) => {
     try {
       let pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
@@ -62,6 +62,7 @@ export async function openBrowser(root, edge = false) {
         message.error ? reject(new Error(JSON.stringify(message.error))) : resolve(message.result);
       }
       if (message.method === 'Runtime.exceptionThrown') errors.push(message.params.exceptionDetails.text);
+      if (message.method === 'Runtime.consoleAPICalled' && message.params.type === 'error') errors.push(`console.error: ${message.params.args.map(arg => arg.value ?? arg.description ?? arg.type).join(' ')}`);
       if (message.method === 'Network.responseReceived' && message.params.response.status >= 400) errors.push(`${message.params.response.status} ${message.params.response.url}`);
       if (message.method === 'Network.requestWillBeSent') requests.push({ method: message.params.request.method, url: message.params.request.url });
       if (message.method) eventListeners.forEach(listener => listener(message));

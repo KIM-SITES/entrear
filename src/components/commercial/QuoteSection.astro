@@ -73,9 +73,10 @@ import { coverageAreas } from '@/data/site';
   label > span { font-weight: 400; font-size: .8125rem; }
   :is(select, textarea) { width: 100%; min-width: 0; border: 1px solid var(--border-control); border-radius: var(--radius-control); background: var(--surface-page); color: var(--text-primary); padding: var(--space-3); min-height: 52px; font-size: 1rem; }
   textarea { resize: vertical; }
+  textarea::placeholder { color: var(--text-secondary); opacity: 1; }
   [aria-invalid="true"] { border: 2px solid var(--color-copper); }
-  .notes-help { display: flex; justify-content: space-between; gap: var(--space-4); color: var(--text-secondary); font-size: .75rem; margin-top: var(--space-2); }
-  .notes-help > :last-child { white-space: nowrap; }
+  .notes-help { display: flex; justify-content: space-between; gap: var(--space-4); color: var(--text-secondary); font-size: var(--type-caption); margin-top: var(--space-2); }
+  .notes-help > :last-child { white-space: nowrap; flex: none; }
   .error { color: var(--color-copper); margin-top: var(--space-2); font-size: var(--type-small); }
   button { min-height: 54px; border: 0; border-radius: var(--radius-control); padding: var(--space-4) var(--space-5); font-weight: 600; cursor: pointer; }
   .generate, .copy { background: var(--action-background); color: var(--action-text); transition: background var(--motion-duration-micro) var(--motion-ease-standard); }

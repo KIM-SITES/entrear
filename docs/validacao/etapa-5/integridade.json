@@ -1,0 +1,49 @@
+{
+  "protectedFiles": 176,
+  "altered": [],
+  "foundationPixels": [
+    {
+      "file": "desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "sameDimensions": true,
+      "differentChannels": 0,
+      "totalChannels": 4320000,
+      "maxDelta": 0
+    },
+    {
+      "file": "mobile.png",
+      "width": 390,
+      "height": 844,
+      "sameDimensions": true,
+      "differentChannels": 0,
+      "totalChannels": 987480,
+      "maxDelta": 0
+    },
+    {
+      "file": "desktop-completo.png",
+      "width": 1440,
+      "height": 5576,
+      "sameDimensions": true,
+      "differentChannels": 0,
+      "totalChannels": 24088320,
+      "maxDelta": 0
+    },
+    {
+      "file": "mobile-completo.png",
+      "width": 390,
+      "height": 6942,
+      "sameDimensions": true,
+      "differentChannels": 163,
+      "totalChannels": 8122140,
+      "maxDelta": 1
+    }
+  ],
+  "colorPairs": {
+    "placeholderBefore": 4.06,
+    "placeholderAndControlBorderAfter": 5.67,
+    "copperFocusOnPaper": 5.03,
+    "inverseFocusAndText": 10.02
+  },
+  "method": "SHA-256 dos originais; PNG decodificado por sharp já presente no projeto; contraste sRGB das cores documentadas, complementado pela auditoria DOM."
+}

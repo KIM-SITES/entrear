@@ -6,11 +6,11 @@ import { fileURLToPath } from 'node:url';
 import { openBrowser } from './lib/browser.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const artifacts = join(root, 'docs/validacao/etapa-4/editorial');
+const artifacts = join(root, 'docs/validacao/etapa-5/editorial');
 const edge = process.argv.includes('--edge');
 await mkdir(artifacts, { recursive: true });
 const report = { browser: edge ? 'Edge' : 'Chrome', scenarios: [], behavior: {} };
-const protectedFiles = JSON.parse(await readFile(join(root, 'docs/referencias/etapa-3.sha256.json'), 'utf8'));
+const protectedFiles = JSON.parse(await readFile(join(root, 'docs/referencias/etapa-4.sha256.json'), 'utf8'));
 for (const [path, hash] of Object.entries(protectedFiles)) {
   assert.equal(createHash('sha256').update(await readFile(join(root, path))).digest('hex'), hash, `Regressão dos conteúdos aprovados: ${path}`);
 }
@@ -45,6 +45,8 @@ try {
   ]) {
     const page = await browser.createPage(view);
     const e = page.evaluate;
+    // Normaliza a reserva de barra antes de medir o recorte da captura CDP.
+    await e('document.documentElement.style.scrollbarWidth = "none"; new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
     const facts = await e(`(() => ({
       width: innerWidth,
       height: document.documentElement.scrollHeight,
@@ -52,7 +54,7 @@ try {
       uniqueIds: new Set([...document.querySelectorAll('[id]')].map(el => el.id)).size === document.querySelectorAll('[id]').length,
       sectionOrder: [...document.querySelectorAll('[data-commercial] > section')].map(el => el.id),
       applicationCount: document.querySelectorAll('#aplicacoes article').length,
-      applicationPhotos: [...document.querySelectorAll('#aplicacoes figure')].every(el => el.querySelector('figcaption').textContent.includes('Não é um projeto da Entrear') && el.querySelector('a').href.startsWith('https://')),
+      applicationPhotos: [...document.querySelectorAll('#aplicacoes figure')].every(el => el.querySelector('figcaption').textContent.includes('Cenário ilustrativo, sem vínculo com a Entrear') && el.querySelector('a').href.startsWith('https://')),
       processSteps: document.querySelectorAll('#atendimento ol > li').length,
       coverage: [...document.querySelectorAll('#regiao li')].map(el => el.firstChild.textContent),
       faqCount: document.querySelectorAll('#duvidas details').length,

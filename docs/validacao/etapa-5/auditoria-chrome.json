@@ -1,0 +1,232 @@
+{
+  "browser": "Chrome",
+  "scenarios": [
+    {
+      "view": "estreito",
+      "width": 320,
+      "overflow": false,
+      "headings": 1,
+      "fontsLoaded": true,
+      "imagesLoaded": true,
+      "captionMinimum": 13,
+      "contrast": {
+        "checked": 167,
+        "min": 4.55,
+        "failures": [],
+        "placeholder": 5.67
+      },
+      "smallTargets": [],
+      "mainWords": 821,
+      "pageHeight": 13200
+    },
+    {
+      "view": "mobile",
+      "width": 390,
+      "overflow": false,
+      "headings": 1,
+      "fontsLoaded": true,
+      "imagesLoaded": true,
+      "captionMinimum": 13,
+      "contrast": {
+        "checked": 167,
+        "min": 4.55,
+        "failures": [],
+        "placeholder": 5.67
+      },
+      "smallTargets": [],
+      "mainWords": 821,
+      "pageHeight": 12732
+    },
+    {
+      "view": "tablet",
+      "width": 768,
+      "overflow": false,
+      "headings": 1,
+      "fontsLoaded": true,
+      "imagesLoaded": true,
+      "captionMinimum": 13,
+      "contrast": {
+        "checked": 168,
+        "min": 4.55,
+        "failures": [],
+        "placeholder": 5.67
+      },
+      "smallTargets": [],
+      "mainWords": 830,
+      "pageHeight": 8528
+    },
+    {
+      "view": "intermediario",
+      "width": 1024,
+      "overflow": false,
+      "headings": 1,
+      "fontsLoaded": true,
+      "imagesLoaded": true,
+      "captionMinimum": 13,
+      "contrast": {
+        "checked": 173,
+        "min": 4.55,
+        "failures": [],
+        "placeholder": 5.67
+      },
+      "smallTargets": [],
+      "mainWords": 830,
+      "pageHeight": 8155
+    },
+    {
+      "view": "desktop",
+      "width": 1440,
+      "overflow": false,
+      "headings": 1,
+      "fontsLoaded": true,
+      "imagesLoaded": true,
+      "captionMinimum": 13,
+      "contrast": {
+        "checked": 173,
+        "min": 4.55,
+        "failures": [],
+        "placeholder": 5.67
+      },
+      "smallTargets": [],
+      "mainWords": 830,
+      "pageHeight": 9093
+    },
+    {
+      "view": "amplo",
+      "width": 1920,
+      "overflow": false,
+      "headings": 1,
+      "fontsLoaded": true,
+      "imagesLoaded": true,
+      "captionMinimum": 13,
+      "contrast": {
+        "checked": 173,
+        "min": 4.55,
+        "failures": [],
+        "placeholder": 5.67
+      },
+      "smallTargets": [],
+      "mainWords": 830,
+      "pageHeight": 9387
+    },
+    {
+      "view": "texto-200",
+      "width": 390,
+      "overflow": false,
+      "headings": 1,
+      "fontsLoaded": true,
+      "imagesLoaded": true,
+      "captionMinimum": 26,
+      "contrast": {
+        "checked": 167,
+        "min": 4.55,
+        "failures": [],
+        "placeholder": 5.67
+      },
+      "smallTargets": [],
+      "mainWords": 821,
+      "pageHeight": 34421
+    }
+  ],
+  "keyboard": [
+    {
+      "view": "estreito",
+      "forward": 38,
+      "reverse": 38,
+      "obscured": [],
+      "noFocus": []
+    },
+    {
+      "view": "mobile",
+      "forward": 38,
+      "reverse": 38,
+      "obscured": [],
+      "noFocus": []
+    },
+    {
+      "view": "tablet",
+      "forward": 38,
+      "reverse": 38,
+      "obscured": [],
+      "noFocus": []
+    },
+    {
+      "view": "intermediario",
+      "forward": 43,
+      "reverse": 43,
+      "obscured": [],
+      "noFocus": []
+    },
+    {
+      "view": "desktop",
+      "forward": 43,
+      "reverse": 43,
+      "obscured": [],
+      "noFocus": []
+    },
+    {
+      "view": "amplo",
+      "forward": 43,
+      "reverse": 43,
+      "obscured": [],
+      "noFocus": []
+    },
+    {
+      "view": "texto-200",
+      "forward": 38,
+      "reverse": 38,
+      "obscured": [],
+      "noFocus": []
+    }
+  ],
+  "limitations": [
+    "Auditoria parcial por DOM, árvore de acessibilidade e interação; não equivale a certificação WCAG ou teste com leitor de tela."
+  ],
+  "version": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.38",
+    "revision": "@a733b5afbb3ba618844ff8876b89ad1a774b2f18",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  },
+  "metadata": {
+    "title": "Entrear Climatização — Conforto tem medida · demonstração",
+    "description": "Instalação e manutenção de ar-condicionado para residências e pequenos negócios. Projeto demonstrativo · empresa fictícia.",
+    "robots": "noindex, nofollow",
+    "ogTitle": "Entrear Climatização — Conforto tem medida · demonstração",
+    "hasFabricatedBusinessSchema": false,
+    "hasPlaceholderCanonical": false
+  },
+  "localFiles": {
+    "checked": 104,
+    "failures": []
+  },
+  "robots": "Rastreamento permitido para leitura de noindex, nofollow; sem domínio ou sitemap fictício.",
+  "forcedColors": {
+    "active": true,
+    "outline": "solid",
+    "width": "3px"
+  },
+  "errors": [],
+  "zoom200": {
+    "supported": true,
+    "before": {
+      "width": 1440,
+      "dpr": 1
+    },
+    "after": {
+      "width": 720,
+      "height": 500,
+      "dpr": 2,
+      "overflow": false
+    },
+    "keyboard": {
+      "view": "zoom-real-200",
+      "forward": 38,
+      "reverse": 38,
+      "obscured": [],
+      "noFocus": []
+    }
+  },
+  "passed": true
+}

@@ -5,7 +5,7 @@ import { coverageAreas } from '@/data/site';
 <section id="regiao" class="coverage" tabindex="-1" aria-labelledby="regiao-titulo">
   <Container>
     <div class="coverage-layout">
-      <div class="coverage-copy"><p class="section-label">Região ilustrativa</p><h2 id="regiao-titulo">Um contexto<br />próximo.</h2><p>Cotia, Itapevi, Barueri e Jandira, no estado de São Paulo, compõem o cenário desta demonstração.</p><p class="coverage-notice">Não representam uma área de operação real. A Entrear é fictícia e não possui endereços ou unidades de atendimento apresentados neste site.</p></div>
+      <div class="coverage-copy"><p class="section-label">Região ilustrativa</p><h2 id="regiao-titulo">Um contexto<br />próximo.</h2><p>Cotia, Itapevi, Barueri e Jandira, no estado de São Paulo, compõem o cenário desta demonstração.</p><p class="coverage-notice">Os municípios fazem parte de uma simulação; não indicam operação comercial ou unidades físicas.</p></div>
       <figure class="region-diagram">
         <div class="region-drawing" aria-hidden="true"><svg viewBox="0 0 600 160" fill="none"><path d="M40 120H180V40H320V120H560" stroke="currentColor" stroke-width="1.5"/><path d="M40 105V135M180 25V55M320 105V135M560 105V135" stroke="currentColor" stroke-width="1.5"/></svg></div>
         <ul role="list" aria-label="Municípios do cenário demonstrativo">{coverageAreas.map(city => <li>{city.name}<span>São Paulo</span></li>)}</ul>
@@ -30,5 +30,5 @@ import { coverageAreas } from '@/data/site';
   figcaption { border-top: 1px solid var(--border-control); padding-top: var(--space-4); color: var(--text-secondary); font-size: var(--type-caption); max-width: 66ch; }
   @media (max-width: 63.99rem) { .coverage-layout { gap: var(--space-7); } }
   @media (max-width: 47.99rem) { .coverage-layout { grid-template-columns: 1fr; gap: var(--space-6); } }
-  @media (max-width: 25rem) { ul { grid-template-columns: repeat(2, 1fr); row-gap: var(--space-5); } }
+  @media (max-width: 25rem) { ul { grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr)); row-gap: var(--space-5); } }
 </style>

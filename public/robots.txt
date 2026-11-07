@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# As páginas declaram noindex, nofollow em suas metatags.
+# O rastreamento permanece permitido para que essa instrução seja lida.

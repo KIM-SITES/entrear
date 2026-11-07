@@ -14,7 +14,7 @@ export interface EditorialPhoto {
   disclaimer: string;
 }
 
-const referenceNotice = 'Cenário ilustrativo. Não é um projeto da Entrear.';
+const referenceNotice = 'Cenário ilustrativo, sem vínculo com a Entrear.';
 
 /** Fontes e licenças conferidas na curadoria de 06/11/2026. */
 export const editorialMedia = {
@@ -45,6 +45,6 @@ export const editorialMedia = {
     author: 'Caroline Badran', provider: 'Unsplash',
     sourceUrl: 'https://unsplash.com/photos/ePhpXlJ6H2g',
     licenseUrl: 'https://unsplash.com/license',
-    disclaimer: 'Detalhe de ambiente de referência. Não representa uma sede ou serviço da Entrear.',
+    disclaimer: 'Detalhe de ambiente ilustrativo.',
   },
 } as const satisfies Record<string, EditorialPhoto>;

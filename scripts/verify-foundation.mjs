@@ -9,7 +9,7 @@ import { spawn } from 'node:child_process';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const output = resolve(root, 'dist');
 // A evidência aprovada da etapa 1 é imutável; a regressão atual tem outra pasta.
-const artifacts = resolve(root, 'docs/validacao/etapa-4/fundacao');
+const artifacts = resolve(root, 'docs/validacao/etapa-5/fundacao');
 await access(resolve(output, 'index.html'));
 const edge = process.argv.includes('--edge');
 const browserPath = process.env.ENTREAR_BROWSER_PATH || (edge

@@ -1,0 +1,98 @@
+{
+  "desktop": {
+    "height": 9188,
+    "words": 931,
+    "captionSizes": [
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "13px"
+    ]
+  },
+  "focusIssues": [
+    {
+      "reverse": false,
+      "text": "Fotografia: Max Vakhtbovych / Pexels",
+      "top": 3.90625,
+      "bottom": 21.90625,
+      "header": 114.1875,
+      "insideHeader": false,
+      "tag": "A"
+    },
+    {
+      "reverse": false,
+      "text": "Fotografia: Max Vakhtbovych / Pexels",
+      "top": 3.90625,
+      "bottom": 21.90625,
+      "header": 114.1875,
+      "insideHeader": false,
+      "tag": "A"
+    }
+  ],
+  "mobile": {
+    "height": 13007,
+    "words": 922,
+    "captionSizes": [
+      "12px",
+      "11px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "13px"
+    ]
+  },
+  "tablet": {
+    "height": 8814,
+    "words": 931,
+    "captionSizes": [
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "12px",
+      "13px"
+    ]
+  },
+  "zoomBefore": {
+    "width": 1440,
+    "dpr": 1
+  },
+  "zoomAfter": {
+    "width": 720,
+    "height": 528,
+    "dpr": 2,
+    "overflow": false
+  }
+}

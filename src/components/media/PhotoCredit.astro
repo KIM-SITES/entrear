@@ -4,7 +4,7 @@ const { author, sourceUrl, provider, inverse = false } = Astro.props;
 ---
 <a class:list={['photo-credit', { 'photo-credit--inverse': inverse }]} href={sourceUrl}>Fotografia: {author} / {provider}</a>
 <style>
-  .photo-credit { color: var(--text-secondary); font-size: .75rem; line-height: 1.5; }
+  .photo-credit { display: inline-flex; align-items: center; min-height: 24px; width: fit-content; color: var(--text-secondary); font-size: var(--type-caption); line-height: 1.5; }
   .photo-credit:hover { color: var(--text-primary); }
   .photo-credit--inverse, .photo-credit--inverse:hover { color: var(--text-inverse); }
 </style>

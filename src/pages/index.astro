@@ -31,7 +31,11 @@ import '@/styles/interactions.css';
   document.documentElement.dataset.commercialReady = 'true';
 </script>
 <style is:global>
-  html:has([data-commercial]) { --anchor-offset: 7.5rem; scroll-padding-block-start: 0; }
+  /* Conteúdo ampliado pode reduzir as trilhas sem impor a largura de uma palavra. */
+  [data-commercial] { overflow-wrap: anywhere; }
+  [data-commercial] :where(*) { min-inline-size: 0; }
+  html:has([data-commercial]) { --anchor-offset: 8rem; scroll-padding-block-start: var(--anchor-offset); }
+  html:has([data-commercial]) [id] { scroll-margin-block-start: 0; }
   @media (prefers-reduced-motion: no-preference) { html:has([data-commercial]) { scroll-behavior: smooth; } }
   @media (max-width: 63.99rem) { html:has([data-commercial]) { --anchor-offset: 1rem; } }
 </style>

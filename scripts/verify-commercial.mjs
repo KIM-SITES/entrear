@@ -7,12 +7,12 @@ import { tmpdir } from 'node:os';
 import { openBrowser } from './lib/browser.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const artifacts = join(root, 'docs/validacao/etapa-4/comercial');
+const artifacts = join(root, 'docs/validacao/etapa-5/comercial');
 const edge = process.argv.includes('--edge');
 await mkdir(artifacts, { recursive: true });
 const report = { browser: edge ? 'Edge' : 'Chrome', scenarios: [], behavior: {} };
-const protectedFiles = JSON.parse(await readFile(join(root, 'docs/referencias/etapa-1.sha256.json'), 'utf8'));
-for (const [path, hash] of Object.entries(protectedFiles)) assert.equal(createHash('sha256').update(await readFile(join(root, path))).digest('hex'), hash, `Arquivo da etapa 1 alterado: ${path}`);
+const protectedFiles = JSON.parse(await readFile(join(root, 'docs/referencias/etapa-4.sha256.json'), 'utf8'));
+for (const [path, hash] of Object.entries(protectedFiles)) assert.equal(createHash('sha256').update(await readFile(join(root, path))).digest('hex'), hash, `Arquivo protegido alterado: ${path}`);
 report.preservedFiles = Object.keys(protectedFiles).length;
 const browser = await openBrowser(root, edge);
 async function captureQuote(page, name) {
@@ -36,6 +36,8 @@ try {
     { name: 'texto-200', width: 390, height: 844, textScale: true },
   ]) {
     const page = await browser.createPage(view);
+    // Normaliza a reserva de barra antes de medir o recorte da captura CDP.
+    await page.evaluate('document.documentElement.style.scrollbarWidth = "none"; new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
     const facts = await page.evaluate(`(() => ({
       width: innerWidth, height: document.documentElement.scrollHeight,
       overflow: document.documentElement.scrollWidth > innerWidth,

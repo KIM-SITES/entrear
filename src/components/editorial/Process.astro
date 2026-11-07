@@ -5,7 +5,7 @@ import { editorialProcess } from '@/data/editorial-content';
 <section id="atendimento" class="process" tabindex="-1" aria-labelledby="atendimento-titulo">
   <Container>
     <div class="process-grid">
-      <div class="process-intro"><p class="section-label">Etapas do atendimento</p><h2 id="atendimento-titulo">Uma conversa<br />que ganha forma.</h2><p>Do primeiro contato à execução, cada decisão precisa de contexto.</p><p class="process-notice"><strong>Percurso ilustrativo.</strong> Esta sequência explica um possível atendimento. A demonstração termina na mensagem de exemplo, sem proposta, agendamento ou execução real.</p><a href="#orcamento">Preparar mensagem de exemplo <span aria-hidden="true">↗</span></a></div>
+      <div class="process-intro"><p class="section-label">Etapas do atendimento</p><h2 id="atendimento-titulo">Uma conversa<br />que ganha forma.</h2><p>Do primeiro contato à execução, cada decisão precisa de contexto.</p><p class="process-notice"><strong>Percurso ilustrativo.</strong> A simulação termina na mensagem de exemplo; não agenda nem executa serviços.</p><a href="#orcamento">Preparar mensagem de exemplo <span aria-hidden="true">↗</span></a></div>
       <ol role="list">{editorialProcess.map((step, index) => <li><span class="step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><div><h3>{step.title}</h3><p>{step.description}</p></div></li>)}</ol>
     </div>
   </Container>

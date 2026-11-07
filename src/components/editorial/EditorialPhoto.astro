@@ -15,7 +15,7 @@ const { photo, primary = false, inverse = false, detail = false } = Astro.props;
   .primary :global(img) { aspect-ratio: .96; object-position: 50% 44%; }
   .detail :global(picture) { display: block; aspect-ratio: 1.25; overflow: hidden; }
   .detail :global(img) { width: 160%; max-width: none; height: 100%; aspect-ratio: auto; object-position: 0 50%; }
-  figcaption { display: flex; flex-direction: column; gap: var(--space-1); margin-top: var(--space-3); font-size: .75rem; line-height: 1.5; color: var(--text-secondary); }
+  figcaption { display: flex; flex-direction: column; gap: var(--space-1); margin-top: var(--space-3); font-size: var(--type-caption); line-height: 1.5; color: var(--text-secondary); }
   .inverse figcaption { color: var(--color-glass); }
   @media (max-width: 47.99rem) {
     .primary :global(img) { aspect-ratio: .9; }

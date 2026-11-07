@@ -10,7 +10,7 @@ export const commercialMedia = {
     sourceUrl: 'https://www.pexels.com/photo/contemporary-apartment-with-living-room-and-kitchen-7019013/',
     licenseUrl: 'https://www.pexels.com/license/',
     originalUrl: 'https://images.pexels.com/photos/7019013/pexels-photo-7019013.jpeg?w=1800',
-    disclaimer: 'Ambiente de referência. Não representa um serviço da Entrear.',
+    disclaimer: 'Imagem de referência, sem vínculo com a Entrear.',
   },
   maintenance: {
     image: maintenance,
@@ -20,7 +20,7 @@ export const commercialMedia = {
     sourceUrl: 'https://www.pexels.com/photo/man-repairing-an-aircon-5463580/',
     licenseUrl: 'https://www.pexels.com/license/',
     originalUrl: 'https://images.pexels.com/photos/5463580/pexels-photo-5463580.jpeg?w=1800',
-    disclaimer: 'Imagem ilustrativa. Não retrata equipe ou serviço da Entrear.',
+    disclaimer: 'Imagem ilustrativa; não retrata equipe da Entrear.',
   },
 } as const;
 

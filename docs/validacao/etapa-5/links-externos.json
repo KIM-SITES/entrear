@@ -1,0 +1,42 @@
+[
+  {
+    "url": "https://unsplash.com/photos/BsHycOlU6Bg",
+    "status": 200,
+    "finalUrl": "https://unsplash.com/photos/modern-living-room-with-air-conditioner-and-decor-BsHycOlU6Bg"
+  },
+  {
+    "url": "https://unsplash.com/license",
+    "status": 200,
+    "finalUrl": "https://unsplash.com/license"
+  },
+  {
+    "url": "https://unsplash.com/photos/ePhpXlJ6H2g",
+    "status": 200,
+    "finalUrl": "https://unsplash.com/photos/modern-office-with-wooden-desk-and-shelves-ePhpXlJ6H2g"
+  },
+  {
+    "url": "https://www.pexels.com/photo/modern-design-for-the-office-interior-7534232/",
+    "status": 403,
+    "finalUrl": "https://www.pexels.com/photo/modern-design-for-the-office-interior-7534232/"
+  },
+  {
+    "url": "https://www.pexels.com/license/",
+    "status": 403,
+    "finalUrl": "https://www.pexels.com/license/"
+  },
+  {
+    "url": "https://www.pexels.com/photo/interior-of-modern-cafe-with-tables-sofas-and-chairs-7541176/",
+    "status": 403,
+    "finalUrl": "https://www.pexels.com/photo/interior-of-modern-cafe-with-tables-sofas-and-chairs-7541176/"
+  },
+  {
+    "url": "https://www.pexels.com/photo/contemporary-apartment-with-living-room-and-kitchen-7019013/",
+    "status": 403,
+    "finalUrl": "https://www.pexels.com/photo/contemporary-apartment-with-living-room-and-kitchen-7019013/"
+  },
+  {
+    "url": "https://www.pexels.com/photo/man-repairing-an-aircon-5463580/",
+    "status": 403,
+    "finalUrl": "https://www.pexels.com/photo/man-repairing-an-aircon-5463580/"
+  }
+]

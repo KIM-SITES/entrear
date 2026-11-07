@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { openBrowser } from './lib/browser.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const artifacts = join(root, 'docs/validacao/etapa-4');
+const artifacts = join(root, 'docs/validacao/etapa-5');
 const edge = process.argv.includes('--edge');
 await mkdir(artifacts, { recursive: true });
 const report = { browser: edge ? 'Edge' : 'Chrome', scenarios: [], behavior: {} };
@@ -26,7 +26,7 @@ try {
   for (const view of [
     { name: 'desktop', width: 1440, height: 1160, motion: true },
     { name: 'mobile', width: 390, height: 960, motion: true },
-    { name: 'tablet', width: 820, height: 1180, motion: true },
+    { name: 'tablet', width: 768, height: 1024, motion: true },
     { name: 'intermediario', width: 1024, height: 1100, motion: true },
     { name: 'estreito', width: 320, height: 960, motion: true },
     { name: 'amplo', width: 1920, height: 1250, motion: true },
@@ -39,6 +39,10 @@ try {
     // somente a aba de evidência; a página publicada mantém a barra nativa.
     await e('document.documentElement.style.scrollbarWidth = "none"');
     if (!edge) await capture(page, `hero-instalacao-${view.name}.png`);
+    // A captura pode atualizar a escolha responsiva do srcset antes da interação.
+    await e('document.querySelector("[data-aperture] img").decode().then(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))))');
+    await page.waitFor('document.querySelector("[data-aperture] img").complete');
+    const heroSource = await e('document.querySelector("[data-aperture] img").currentSrc');
     const before = await e(`(() => {
       const frame=document.querySelector('[data-aperture]'); const img=frame.querySelector('img');
       const r=img.getBoundingClientRect();
@@ -47,7 +51,7 @@ try {
     assert.equal(before.imageCount, 1); assert.equal(before.imageTransform, 'none');
     assert.deepEqual(before.durations, ['0.42s', '0.42s', '0.56s', '0.56s']);
     assert.equal(before.initialAnimations, 0, 'Hero sem entrada automática');
-    const requestsBefore = browser.requests.filter(request => request.url.includes('ambiente-horizontal')).length;
+    const requestsBefore = browser.requests.filter(request => request.url === heroSource).length;
     await e('document.querySelector("[data-service-choice][value=instalacao]").focus()');
     await page.key('ArrowRight', 'ArrowRight', 39);
     const during = await e(`(() => ({state:document.querySelector('[data-service-stage]').dataset.service, form:document.querySelector('#quote-service').value, search:location.search, animations:document.querySelector('.plane').getAnimations().length, matrix:getComputedStyle(document.querySelector('.plane')).transform, height:document.querySelector('#inicio').offsetHeight}))()`);
@@ -62,7 +66,8 @@ try {
     const after = await e(`(() => { const r=document.querySelector('[data-aperture] img').getBoundingClientRect();return {height:document.querySelector('#inicio').offsetHeight, imageRect:JSON.stringify({x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height}), scales:[...document.querySelectorAll('.plane')].map(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).m22), overflow:document.documentElement.scrollWidth>innerWidth};})()`);
     assert.equal(after.height, before.height); assert.equal(after.imageRect, before.imageRect);
     assert.deepEqual(after.scales, [0,0,0,0]); assert.equal(after.overflow, false);
-    assert.equal(browser.requests.filter(request => request.url.includes('ambiente-horizontal')).length, requestsBefore, 'Trocar serviço não baixa outra imagem do hero');
+    assert.equal(await e('document.querySelector("[data-aperture] img").currentSrc'), heroSource, 'Trocar serviço mantém a origem da fotografia');
+    assert.equal(browser.requests.filter(request => request.url === heroSource).length, requestsBefore, 'Trocar serviço não baixa novamente a fotografia');
     if (!edge) await capture(page, `hero-manutencao-${view.name}.png`);
 
     // Reversão sem aguardar o primeiro movimento: o CSS parte do estado interpolado.

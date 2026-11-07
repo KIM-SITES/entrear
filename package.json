@@ -18,7 +18,9 @@
     "verify:commercial": "node scripts/verify-commercial.mjs",
     "verify:editorial": "node scripts/verify-editorial.mjs",
     "verify:motion": "node scripts/verify-motion.mjs",
-    "record:hero": "node scripts/record-hero.mjs"
+    "record:hero": "node scripts/record-hero.mjs",
+    "verify:final": "node scripts/verify-final.mjs",
+    "measure:performance": "node scripts/measure-performance.mjs"
   },
   "dependencies": {
     "astro": "7.4.7"
